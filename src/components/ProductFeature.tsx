@@ -18,13 +18,13 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
       id={product.id}
       className={`relative overflow-hidden py-24 md:py-36 ${
         isMizunara
-          ? "bg-gradient-to-b from-[#0F1215] via-[#141A1E] to-[#0F1215]"
-          : "bg-gradient-to-b from-[#14110D] via-[#1A1610] to-[#14110D]"
+          ? "bg-gradient-to-b from-[#151A1E] via-[#1C2228] to-[#151A1E]"
+          : "bg-gradient-to-b from-[#1A1710] via-[#221E15] to-[#1A1710]"
       }`}
     >
       {/* Accent background texture */}
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{
           backgroundImage: "url('/assets/textures/oak-pattern.svg')",
           backgroundSize: "400px",

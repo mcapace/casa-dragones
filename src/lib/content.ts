@@ -46,7 +46,7 @@ export const siteConfig = {
       heroImageSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
       accent: "mizunara",
       ctaText: "Explore Reposado Mizunara",
-      ctaUrl: "https://casadragones.com",
+      ctaUrl: "https://casadragones.com/us/sipping-tequilas/reposado/",
       serving: "Best served neat or with a small ice cube",
       quotes: [
         {
@@ -72,7 +72,7 @@ export const siteConfig = {
       heroImageSrc: "/assets/hero/casa-dragones-anejo-barrel-blend-16x9.jpg",
       accent: "anejo",
       ctaText: "Explore Añejo Barrel Blend",
-      ctaUrl: "https://casadragones.com",
+      ctaUrl: "https://casadragones.com/us/sipping-tequilas/anejo/",
       serving: "Best served neat or with a small ice cube",
       quotes: [
         {
