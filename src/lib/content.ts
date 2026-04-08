@@ -18,7 +18,7 @@ export const siteConfig = {
     mobileImageSrc: "/assets/hero/casa-dragones-reposado-anejo-4x5.jpg",
     videoSrc: "",
     headline: "Where Tradition Meets Mastery",
-    subheadline: "A journey through the art of ultra-premium tequila",
+    subheadline: "Ultra-premium small batch tequila — Woman-founded. Woman-led.",
   },
   brandStory: {
     heading: "The Pursuit of Perfection",

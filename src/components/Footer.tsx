@@ -121,7 +121,7 @@ export default function Footer() {
             <p className="shrink-0 text-[0.6rem] tracking-wide text-brand-cream/30">
               &copy; {new Date().getFullYear()} {publisher.parent}. All rights reserved.
               <br />
-              Please drink responsibly.
+              Please sip responsibly.
             </p>
           </div>
         </div>
