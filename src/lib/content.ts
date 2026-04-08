@@ -8,7 +8,8 @@ export const siteConfig = {
   },
   publisher: {
     name: "Whisky Advocate",
-    logo: "/assets/logos/whisky-advocate-logo.svg",
+    logo: "/assets/logos/WA_WHITE-removebg-preview.png",
+    logoBlue: "/assets/logos/WA_BLUE-removebg-preview.png",
     url: "https://whiskyadvocate.com",
     parent: "M. Shanken Communications",
   },
