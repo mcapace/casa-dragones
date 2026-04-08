@@ -2,7 +2,8 @@ export const siteConfig = {
   brand: {
     name: "Casa Dragones",
     tagline: "The Art of Tequila",
-    logo: "/assets/logos/casa-dragones-logo.svg",
+    logo: "/assets/logos/casa-dragones-logo-white.png",
+    logoBlu: "/assets/logos/casa-dragones-logo-blue.png",
     url: "https://casadragones.com",
   },
   publisher: {
@@ -13,8 +14,8 @@ export const siteConfig = {
   },
   hero: {
     mediaType: "image" as "video" | "image",
-    imageSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
-    mobileImageSrc: "/assets/hero/casa-dragones-reposado-mizunara-4x5.jpg",
+    imageSrc: "/assets/hero/casa-dragones-reposado-anejo-16x9.jpg",
+    mobileImageSrc: "/assets/hero/casa-dragones-reposado-anejo-4x5.jpg",
     videoSrc: "",
     headline: "Where Tradition Meets Mastery",
     subheadline: "A journey through the art of ultra-premium tequila",

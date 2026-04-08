@@ -53,8 +53,8 @@ export default function Hero() {
       )}
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-brand-black/60 via-transparent to-brand-black" />
-      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-brand-black/40 via-transparent to-brand-black/40" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-brand-black/70 via-brand-black/20 to-brand-black" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-brand-black/30 via-transparent to-brand-black/30" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
@@ -63,12 +63,12 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="sponsored-label mb-8"
+          className="sponsored-label mb-10"
         >
           Sponsored Content
         </motion.span>
 
-        {/* Logo */}
+        {/* Logo — real Casa Dragones logo (white on dark) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -77,10 +77,10 @@ export default function Hero() {
           <Image
             src={brand.logo}
             alt={brand.name}
-            width={280}
-            height={100}
+            width={500}
+            height={80}
             priority
-            className="mb-8 h-auto w-48 md:w-64 lg:w-72"
+            className="mb-10 h-auto w-56 md:w-72 lg:w-96"
           />
         </motion.div>
 
@@ -105,12 +105,12 @@ export default function Hero() {
           {hero.subheadline}
         </motion.p>
 
-        {/* Decorative line */}
+        {/* Decorative line — brand blue */}
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: 80 }}
           transition={{ delay: 2, duration: 1.2, ease: "easeInOut" }}
-          className="mt-8 h-[1px] bg-brand-gold/40"
+          className="mt-8 h-[1px] bg-brand-blue/60"
         />
       </div>
 
@@ -134,17 +134,9 @@ export default function Hero() {
             height="24"
             viewBox="0 0 16 24"
             fill="none"
-            className="text-brand-gold/40"
+            className="text-brand-blue/50"
           >
-            <rect
-              x="1"
-              y="1"
-              width="14"
-              height="22"
-              rx="7"
-              stroke="currentColor"
-              strokeWidth="1"
-            />
+            <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" strokeWidth="1" />
             <motion.circle
               cx="8"
               cy="8"

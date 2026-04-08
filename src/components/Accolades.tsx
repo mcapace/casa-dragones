@@ -12,7 +12,7 @@ export default function Accolades() {
     <Section
       id="accolades"
       fullBleed
-      className="border-y border-brand-gold/10 bg-gradient-to-b from-brand-black via-brand-charcoal/50 to-brand-black py-24 md:py-32"
+      className="border-y border-brand-blue/10 bg-gradient-to-b from-brand-black via-brand-charcoal/50 to-brand-black py-24 md:py-32"
     >
       <motion.div
         variants={staggerContainer}
@@ -23,7 +23,7 @@ export default function Accolades() {
       >
         <motion.h2
           variants={fadeUp}
-          className="mb-16 text-center text-xs font-medium uppercase tracking-[0.3em] text-brand-gold/60"
+          className="mb-16 text-center text-xs font-medium uppercase tracking-[0.3em] text-brand-blue/70"
         >
           Recognition & Acclaim
         </motion.h2>
@@ -33,13 +33,13 @@ export default function Accolades() {
             <motion.div
               key={i}
               variants={fadeUp}
-              className="group relative border border-brand-gold/10 bg-brand-black/50 p-8 text-center transition-all duration-500 hover:border-brand-gold/30 hover:bg-brand-charcoal/30"
+              className="group relative border border-brand-blue/10 bg-brand-black/50 p-8 text-center transition-all duration-500 hover:border-brand-blue/30 hover:bg-brand-charcoal/30"
             >
               {/* Top accent line */}
-              <div className="absolute top-0 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-brand-gold transition-all duration-500 group-hover:w-full" />
+              <div className="absolute top-0 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-brand-blue transition-all duration-500 group-hover:w-full" />
 
               <p
-                className="mb-2 text-2xl font-light tracking-wide text-brand-gold md:text-3xl"
+                className="mb-2 text-2xl font-light tracking-wide text-brand-blue md:text-3xl"
                 style={{ fontFamily: "var(--font-playfair)" }}
               >
                 {accolade.quote}
@@ -50,7 +50,7 @@ export default function Accolades() {
               <p className="mb-1 text-xs text-brand-cream/40">
                 {accolade.detail}
               </p>
-              <p className="text-[0.65rem] uppercase tracking-[0.15em] text-brand-gold/40">
+              <p className="text-[0.65rem] uppercase tracking-[0.15em] text-brand-blue/40">
                 {accolade.product}
               </p>
             </motion.div>

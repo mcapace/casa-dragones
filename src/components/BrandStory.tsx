@@ -19,7 +19,7 @@ export default function BrandStory() {
       >
         {/* Decorative element */}
         <motion.div variants={fadeUp} className="mb-8 flex justify-center">
-          <div className="h-12 w-[1px] bg-gradient-to-b from-transparent via-brand-gold/40 to-transparent" />
+          <div className="h-12 w-[1px] bg-gradient-to-b from-transparent via-brand-blue/40 to-transparent" />
         </motion.div>
 
         <motion.h2
@@ -43,9 +43,9 @@ export default function BrandStory() {
         {/* Decorative element */}
         <motion.div variants={fadeUp} className="mt-12 flex justify-center">
           <div className="flex items-center gap-4">
-            <div className="h-[1px] w-12 bg-brand-gold/30" />
-            <div className="h-1.5 w-1.5 rotate-45 border border-brand-gold/40" />
-            <div className="h-[1px] w-12 bg-brand-gold/30" />
+            <div className="h-[1px] w-12 bg-brand-blue/30" />
+            <div className="h-1.5 w-1.5 rotate-45 border border-brand-blue/40" />
+            <div className="h-[1px] w-12 bg-brand-blue/30" />
           </div>
         </motion.div>
       </motion.div>

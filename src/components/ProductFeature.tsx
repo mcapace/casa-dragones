@@ -18,8 +18,8 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
       id={product.id}
       className={`relative overflow-hidden py-24 md:py-36 ${
         isMizunara
-          ? "bg-gradient-to-b from-brand-black via-[#0D0D0A] to-brand-black"
-          : "bg-gradient-to-b from-brand-black via-[#120E05] to-brand-black"
+          ? "bg-gradient-to-b from-brand-black via-[#0A0E11] to-brand-black"
+          : "bg-gradient-to-b from-brand-black via-[#110E08] to-brand-black"
       }`}
     >
       {/* Accent background texture */}
@@ -36,30 +36,30 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className={`mx-auto grid max-w-[1200px] items-center gap-12 px-6 md:grid-cols-2 md:gap-16 md:px-12 lg:gap-24 ${
+        className={`mx-auto grid max-w-[1200px] items-center gap-8 px-6 md:grid-cols-[1fr_1fr] md:gap-12 md:px-12 lg:gap-20 ${
           reversed ? "md:[direction:rtl]" : ""
         }`}
       >
-        {/* Product Image */}
+        {/* Product Image — LARGE and prominent */}
         <motion.div
           variants={reversed ? slideInRight : slideInLeft}
           className="relative md:[direction:ltr]"
         >
-          <div className="relative mx-auto aspect-[3/4] max-w-md overflow-hidden">
+          <div className="relative mx-auto aspect-[2/3] w-full max-w-lg overflow-hidden">
             {/* Glow effect behind bottle */}
             <div
-              className={`absolute inset-0 rounded-full opacity-20 blur-3xl ${
+              className={`absolute top-1/4 left-1/2 h-2/3 w-2/3 -translate-x-1/2 rounded-full blur-[80px] ${
                 isMizunara
-                  ? "bg-gradient-to-br from-brand-gold/30 to-transparent"
-                  : "bg-gradient-to-br from-brand-amber/30 to-transparent"
+                  ? "bg-brand-blue/15"
+                  : "bg-brand-amber/15"
               }`}
             />
             <Image
               src={product.imageSrc}
               alt={product.name}
               fill
-              sizes="(max-width: 768px) 80vw, 40vw"
-              className="relative z-10 object-contain p-8"
+              sizes="(max-width: 768px) 90vw, 45vw"
+              className="relative z-10 object-contain drop-shadow-2xl"
             />
           </div>
         </motion.div>
@@ -72,9 +72,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
           {/* Tagline */}
           <motion.p
             variants={fadeUp}
-            className={`mb-4 text-xs font-medium uppercase tracking-[0.2em] ${
-              isMizunara ? "text-brand-gold" : "text-brand-amber"
-            }`}
+            className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-brand-blue"
           >
             {product.tagline}
           </motion.p>
@@ -101,7 +99,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
             <h3 className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-brand-cream/50">
               Body & Color
             </h3>
-            <p className="text-sm leading-relaxed text-brand-cream/60 italic">
+            <p className="text-sm leading-relaxed italic text-brand-cream/60">
               {product.body}
             </p>
           </motion.div>
@@ -114,11 +112,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
             <div className="space-y-3">
               {(["nose", "palate", "finish"] as const).map((note) => (
                 <div key={note} className="flex gap-4">
-                  <span
-                    className={`w-16 shrink-0 text-xs font-medium uppercase tracking-widest ${
-                      isMizunara ? "text-brand-gold/70" : "text-brand-amber/70"
-                    }`}
-                  >
+                  <span className="w-16 shrink-0 text-xs font-medium uppercase tracking-widest text-brand-blue/70">
                     {note === "palate" ? "taste" : note}
                   </span>
                   <span className="text-sm leading-relaxed text-brand-cream/60">
@@ -141,9 +135,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
           {product.quotes[0] && (
             <motion.blockquote
               variants={fadeUp}
-              className={`mb-10 border-l-2 pl-5 ${
-                isMizunara ? "border-brand-gold/30" : "border-brand-amber/30"
-              }`}
+              className="mb-10 border-l-2 border-brand-blue/30 pl-5"
             >
               <p className="mb-1 text-sm italic leading-relaxed text-brand-cream/70">
                 &ldquo;{product.quotes[0].text}&rdquo;
@@ -160,11 +152,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
             href={product.ctaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group inline-flex items-center gap-3 border px-8 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all duration-300 ${
-              isMizunara
-                ? "border-brand-gold/30 text-brand-gold hover:border-brand-gold hover:bg-brand-gold/10"
-                : "border-brand-amber/30 text-brand-amber hover:border-brand-amber hover:bg-brand-amber/10"
-            }`}
+            className="group inline-flex items-center gap-3 border border-brand-blue/30 px-8 py-3 text-xs font-medium uppercase tracking-[0.2em] text-brand-blue transition-all duration-300 hover:border-brand-blue hover:bg-brand-blue/10"
           >
             {product.ctaText}
             <svg
@@ -181,7 +169,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
       </motion.div>
 
       {/* Section divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-blue/10 to-transparent" />
     </section>
   );
 }

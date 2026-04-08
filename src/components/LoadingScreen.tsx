@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { siteConfig } from "@/lib/content";
 
 export default function LoadingScreen() {
   const [visible, setVisible] = useState(true);
@@ -28,18 +29,19 @@ export default function LoadingScreen() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <Image
-              src="/assets/logos/casa-dragones-logo.svg"
+              src={siteConfig.brand.logo}
               alt="Casa Dragones"
-              width={200}
-              height={80}
+              width={320}
+              height={52}
               priority
+              className="h-auto w-56 md:w-72"
             />
           </motion.div>
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: 120 }}
             transition={{ duration: 1.2, ease: "easeInOut", delay: 0.3 }}
-            className="mt-8 h-[1px] bg-brand-gold/50"
+            className="mt-8 h-[1px] bg-brand-blue/50"
           />
         </motion.div>
       )}

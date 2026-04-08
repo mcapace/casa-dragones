@@ -22,7 +22,7 @@ function VideoPlayer({
     <div className="relative aspect-video w-full overflow-hidden bg-brand-charcoal">
       {playing ? (
         <iframe
-          src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&color=C9A96E`}
+          src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&color=1CA1D1`}
           className="absolute inset-0 h-full w-full"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
@@ -47,9 +47,9 @@ function VideoPlayer({
 
           {/* Play button */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-brand-cream/30 bg-brand-black/50 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-brand-gold/50 md:h-20 md:w-20">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-brand-cream/30 bg-brand-black/50 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-brand-blue/50 md:h-20 md:w-20">
               <svg
-                className="ml-1 h-6 w-6 text-brand-cream transition-colors group-hover:text-brand-gold md:h-7 md:w-7"
+                className="ml-1 h-6 w-6 text-brand-cream transition-colors group-hover:text-brand-blue md:h-7 md:w-7"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >

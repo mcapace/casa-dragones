@@ -24,13 +24,15 @@ export default function Footer() {
           viewport={{ once: true, margin: "-100px" }}
           className="mx-auto max-w-2xl px-6 text-center md:px-12"
         >
-          {/* Decorative */}
-          <motion.div variants={fadeUp} className="mb-8 flex justify-center">
-            <div className="flex items-center gap-4">
-              <div className="h-[1px] w-16 bg-brand-gold/30" />
-              <div className="h-2 w-2 rotate-45 border border-brand-gold/40" />
-              <div className="h-[1px] w-16 bg-brand-gold/30" />
-            </div>
+          {/* Logo */}
+          <motion.div variants={fadeUp} className="mb-10 flex justify-center">
+            <Image
+              src={brand.logoBlu}
+              alt={brand.name}
+              width={280}
+              height={45}
+              className="h-auto w-44 md:w-56"
+            />
           </motion.div>
 
           <motion.h2
@@ -53,7 +55,7 @@ export default function Footer() {
             href={cta.buttonUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 border border-brand-gold/40 bg-brand-gold/5 px-10 py-4 text-xs font-medium uppercase tracking-[0.25em] text-brand-gold transition-all duration-300 hover:border-brand-gold hover:bg-brand-gold/15"
+            className="inline-flex items-center gap-3 border border-brand-blue/40 bg-brand-blue/5 px-10 py-4 text-xs font-medium uppercase tracking-[0.25em] text-brand-blue transition-all duration-300 hover:border-brand-blue hover:bg-brand-blue/15"
           >
             {cta.buttonText}
             <svg
@@ -73,31 +75,53 @@ export default function Footer() {
         </motion.div>
       </Section>
 
-      {/* Footer bar */}
-      <div className="border-t border-brand-gold/10 bg-brand-black py-8">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-6 px-6 md:flex-row md:justify-between md:px-12">
-          <div className="flex items-center gap-6">
-            <Image
-              src={brand.logo}
-              alt={brand.name}
-              width={120}
-              height={40}
-              className="h-6 w-auto opacity-60"
-            />
-            <div className="h-4 w-px bg-brand-cream/20" />
-            <Image
-              src={publisher.logo}
-              alt={publisher.name}
-              width={120}
-              height={40}
-              className="h-5 w-auto opacity-40"
-            />
+      {/* Whisky Advocate Footer Bar */}
+      <div className="border-t border-brand-blue/10 bg-brand-charcoal/40">
+        <div className="mx-auto max-w-[1200px] px-6 py-10 md:px-12">
+          {/* Top row: logos + branding */}
+          <div className="mb-8 flex flex-col items-center gap-8 md:flex-row md:justify-between">
+            {/* Whisky Advocate branding — prominent */}
+            <div className="flex flex-col items-center gap-3 md:items-start">
+              <Image
+                src={publisher.logo}
+                alt={publisher.name}
+                width={200}
+                height={50}
+                className="h-8 w-auto"
+              />
+              <p className="text-xs tracking-wide text-brand-cream/40">
+                A publication of {publisher.parent}
+              </p>
+            </div>
+
+            {/* Casa Dragones logo */}
+            <div className="flex flex-col items-center gap-3 md:items-end">
+              <Image
+                src={brand.logo}
+                alt={brand.name}
+                width={180}
+                height={30}
+                className="h-6 w-auto opacity-70"
+              />
+            </div>
           </div>
 
-          <div className="flex flex-col items-center gap-2 text-center md:items-end">
-            <span className="sponsored-label">Sponsored Content</span>
-            <p className="text-[0.6rem] tracking-wide text-brand-cream/30">
-              &copy; {new Date().getFullYear()} {publisher.parent}. Please drink responsibly.
+          {/* Divider */}
+          <div className="mb-6 h-px bg-gradient-to-r from-transparent via-brand-cream/10 to-transparent" />
+
+          {/* Bottom row: legal + disclosure */}
+          <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
+            <div className="flex flex-col gap-1">
+              <span className="sponsored-label">Sponsored Content</span>
+              <p className="text-[0.6rem] leading-relaxed tracking-wide text-brand-cream/30">
+                This content was produced in collaboration with Casa Dragones and does not reflect
+                the editorial opinion of {publisher.name}.
+              </p>
+            </div>
+            <p className="shrink-0 text-[0.6rem] tracking-wide text-brand-cream/30">
+              &copy; {new Date().getFullYear()} {publisher.parent}. All rights reserved.
+              <br />
+              Please drink responsibly.
             </p>
           </div>
         </div>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { siteConfig } from "@/lib/content";
 
 export default function StickyNav() {
   const [show, setShow] = useState(false);
@@ -27,38 +28,38 @@ export default function StickyNav() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="fixed top-0 left-0 right-0 z-50 border-b border-brand-gold/10 bg-brand-black/90 backdrop-blur-md"
+          className="fixed top-0 left-0 right-0 z-50 border-b border-brand-blue/10 bg-brand-black/90 backdrop-blur-md"
         >
           <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-3 md:px-12">
             <Image
-              src="/assets/logos/casa-dragones-logo.svg"
+              src={siteConfig.brand.logo}
               alt="Casa Dragones"
-              width={140}
-              height={40}
-              className="h-8 w-auto"
+              width={180}
+              height={30}
+              className="h-7 w-auto"
             />
             <div className="hidden items-center gap-8 md:flex">
               <button
                 onClick={() => scrollTo("brand-story")}
-                className="text-xs uppercase tracking-[0.2em] text-brand-cream/60 transition-colors hover:text-brand-gold"
+                className="text-xs uppercase tracking-[0.2em] text-brand-cream/60 transition-colors hover:text-brand-blue"
               >
                 Story
               </button>
               <button
                 onClick={() => scrollTo("reposado-mizunara")}
-                className="text-xs uppercase tracking-[0.2em] text-brand-cream/60 transition-colors hover:text-brand-gold"
+                className="text-xs uppercase tracking-[0.2em] text-brand-cream/60 transition-colors hover:text-brand-blue"
               >
                 Reposado
               </button>
               <button
                 onClick={() => scrollTo("anejo-barrel-blend")}
-                className="text-xs uppercase tracking-[0.2em] text-brand-cream/60 transition-colors hover:text-brand-gold"
+                className="text-xs uppercase tracking-[0.2em] text-brand-cream/60 transition-colors hover:text-brand-blue"
               >
                 Añejo
               </button>
               <button
                 onClick={() => scrollTo("videos")}
-                className="text-xs uppercase tracking-[0.2em] text-brand-cream/60 transition-colors hover:text-brand-gold"
+                className="text-xs uppercase tracking-[0.2em] text-brand-cream/60 transition-colors hover:text-brand-blue"
               >
                 Videos
               </button>
