@@ -28,6 +28,38 @@ export const siteConfig = {
       "Our journey of taste begins with a modern, sustainable method of production in the highlands of Jalisco. Water sourced from natural spring aquifers, mineral-rich from volcanic soil, and precision-purified for balance. This is tequila elevated to art.",
     ],
   },
+  founders: {
+    heading: "It Started With a Promise",
+    body: "In 2009, Bertha González Nieves — the first woman ever certified as a Maestra Tequilera — joined forces with Robert W. Pittman, co-founder of MTV, with a shared vision: to reimagine tequila as a spirit to be savored, not rushed. What began as a passion project became Casa Dragones Joven, a small-batch sipping tequila crafted to stand alongside the world's finest spirits.",
+    founderName: "Bertha González Nieves",
+    founderTitle: "CEO & Co-founder, First Certified Female Maestra Tequilera",
+    quote: "We believe in doing one thing, extraordinarily well.",
+  },
+  craftsmanship: {
+    heading: "Mexican Craftsmanship",
+    features: [
+      {
+        title: "Volcanic Terroir",
+        description: "Our Agave Azul Tequilana Weber grows for approximately seven years in the volcanic soil of the Trans-Mexican Volcanic Belt — rich in silica, potassium, and obsidian lava rock. Each plant is hand-selected at peak ripeness.",
+      },
+      {
+        title: "Pure Spring Water",
+        description: "Fresh natural spring water extracted from underground aquifers emanating from the headwaters of the Volcano of Tequila, purified through a state-of-the-art process to harmonize perfectly with our tequila.",
+      },
+      {
+        title: "Hand-Finished Artistry",
+        description: "Every Casa Dragones Joven bottle is hand-engraved using the traditional Mexican pepita technique, then individually labeled, signed, and numbered — an attention to detail that can only be achieved by hand.",
+      },
+      {
+        title: "Sustainable Innovation",
+        description: "Recognized by the Tequila Regulatory Council for industry-leading efficiency, our process uses less water, less energy, and fewer agaves per liter while creating less waste than conventional methods.",
+      },
+    ],
+  },
+  heritage: {
+    heading: "A Legacy of Independence",
+    body: "The name Casa Dragones honors Los Dragones de San Miguel de Allende — the legendary cavalry instrumental in Mexico's 1810 Independence Movement. Their signature blue uniforms inspired our brand color, and the number 16 on every bottle marks September 16th, Mexico's independence day. Our headquarters stands at La Casa Dragones in San Miguel de Allende, where history and innovation converge.",
+  },
   products: [
     {
       id: "reposado-mizunara",
