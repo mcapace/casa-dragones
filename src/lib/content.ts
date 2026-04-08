@@ -13,7 +13,7 @@ export const siteConfig = {
   },
   hero: {
     mediaType: "image" as "video" | "image",
-    imageSrc: "/assets/hero/hero-placeholder.svg",
+    imageSrc: "/assets/hero/casa-dragones-anejo-barrel-blend-cigar-16x9.jpg",
     videoSrc: "", // swap in final video URL
     headline: "Where Tradition Meets Mastery",
     subheadline: "A journey through the art of ultra-premium tequila",
@@ -40,7 +40,7 @@ export const siteConfig = {
         finish:
           "Long, elegant finish with lingering notes of Japanese oak and sweet agave",
       },
-      imageSrc: "/assets/products/reposado-mizunara.svg",
+      imageSrc: "/assets/products/tequila-casa-dragones-reposado-750-US.png",
       accent: "mizunara", // used for theming
       ctaText: "Explore Reposado Mizunara",
       ctaUrl: "https://casadragones.com",
@@ -59,7 +59,7 @@ export const siteConfig = {
         finish:
           "Warm, lingering finish with notes of vanilla, cinnamon, and a touch of leather",
       },
-      imageSrc: "/assets/products/anejo-barrel-blend.svg",
+      imageSrc: "/assets/products/tequila-casa-dragones-anejo-750-US.png",
       accent: "anejo",
       ctaText: "Explore Añejo Barrel Blend",
       ctaUrl: "https://casadragones.com",
@@ -96,13 +96,13 @@ export const siteConfig = {
       id: "reposado-mizunara-video",
       title: "Casa Dragones Reposado Mizunara",
       vimeoId: "744805235",
-      posterSrc: "/assets/products/reposado-mizunara.svg",
+      posterSrc: "/assets/products/tequila-casa-dragones-reposado-750-US.png",
     },
     {
       id: "anejo-barrel-blend-video",
       title: "Casa Dragones Añejo Barrel Blend",
       vimeoId: "427150598",
-      posterSrc: "/assets/products/anejo-barrel-blend.svg",
+      posterSrc: "/assets/products/tequila-casa-dragones-anejo-750-US.png",
     },
   ],
   cta: {
@@ -115,7 +115,7 @@ export const siteConfig = {
     title: "Casa Dragones — Ultra-Premium Tequila | Whisky Advocate",
     description:
       "Discover Casa Dragones ultra-premium tequila. Featuring the groundbreaking Reposado Mizunara and award-winning Añejo Barrel Blend. Presented by Whisky Advocate.",
-    ogImage: "/assets/hero/hero-placeholder.svg",
+    ogImage: "/assets/hero/casa-dragones-anejo-barrel-blend-cigar-16x9.jpg",
   },
 };
 
