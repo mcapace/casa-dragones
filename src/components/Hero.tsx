@@ -31,13 +31,23 @@ export default function Hero() {
           transition={{ duration: 8, ease: "easeOut" }}
           className="absolute inset-0"
         >
+          {/* Desktop hero (16:9) */}
           <Image
             src={hero.imageSrc}
             alt={brand.name}
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="hidden object-cover md:block"
+          />
+          {/* Mobile hero (4:5) */}
+          <Image
+            src={hero.mobileImageSrc}
+            alt={brand.name}
+            fill
+            priority
+            sizes="100vw"
+            className="block object-cover md:hidden"
           />
         </motion.div>
       )}
@@ -90,7 +100,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 1 }}
-          className="max-w-xl text-sm tracking-[0.15em] text-brand-cream/60 uppercase md:text-base"
+          className="max-w-xl text-sm uppercase tracking-[0.15em] text-brand-cream/60 md:text-base"
         >
           {hero.subheadline}
         </motion.p>

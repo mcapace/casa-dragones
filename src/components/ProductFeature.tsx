@@ -58,7 +58,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
               src={product.imageSrc}
               alt={product.name}
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 80vw, 40vw"
               className="relative z-10 object-contain p-8"
             />
           </div>
@@ -72,7 +72,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
           {/* Tagline */}
           <motion.p
             variants={fadeUp}
-            className={`mb-4 text-xs font-medium uppercase tracking-[0.25em] ${
+            className={`mb-4 text-xs font-medium uppercase tracking-[0.2em] ${
               isMizunara ? "text-brand-gold" : "text-brand-amber"
             }`}
           >
@@ -96,11 +96,19 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
             {product.description}
           </motion.p>
 
+          {/* Body & Color */}
+          <motion.div variants={fadeUp} className="mb-6">
+            <h3 className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-brand-cream/50">
+              Body & Color
+            </h3>
+            <p className="text-sm leading-relaxed text-brand-cream/60 italic">
+              {product.body}
+            </p>
+          </motion.div>
+
           {/* Tasting Notes */}
-          <motion.div variants={fadeUp} className="mb-10 space-y-4">
-            <h3
-              className="text-xs font-medium uppercase tracking-[0.2em] text-brand-cream/50"
-            >
+          <motion.div variants={fadeUp} className="mb-8 space-y-4">
+            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-brand-cream/50">
               Tasting Notes
             </h3>
             <div className="space-y-3">
@@ -111,7 +119,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
                       isMizunara ? "text-brand-gold/70" : "text-brand-amber/70"
                     }`}
                   >
-                    {note}
+                    {note === "palate" ? "taste" : note}
                   </span>
                   <span className="text-sm leading-relaxed text-brand-cream/60">
                     {product.tastingNotes[note]}
@@ -120,6 +128,31 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
               ))}
             </div>
           </motion.div>
+
+          {/* Serving suggestion */}
+          <motion.p
+            variants={fadeUp}
+            className="mb-8 text-xs italic tracking-wide text-brand-cream/40"
+          >
+            {product.serving}
+          </motion.p>
+
+          {/* Quote */}
+          {product.quotes[0] && (
+            <motion.blockquote
+              variants={fadeUp}
+              className={`mb-10 border-l-2 pl-5 ${
+                isMizunara ? "border-brand-gold/30" : "border-brand-amber/30"
+              }`}
+            >
+              <p className="mb-1 text-sm italic leading-relaxed text-brand-cream/70">
+                &ldquo;{product.quotes[0].text}&rdquo;
+              </p>
+              <cite className="text-xs not-italic tracking-wide text-brand-cream/40">
+                — {product.quotes[0].source}
+              </cite>
+            </motion.blockquote>
+          )}
 
           {/* CTA */}
           <motion.a

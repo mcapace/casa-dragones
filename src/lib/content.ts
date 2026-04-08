@@ -13,16 +13,17 @@ export const siteConfig = {
   },
   hero: {
     mediaType: "image" as "video" | "image",
-    imageSrc: "/assets/hero/casa-dragones-anejo-barrel-blend-cigar-16x9.jpg",
-    videoSrc: "", // swap in final video URL
+    imageSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
+    mobileImageSrc: "/assets/hero/casa-dragones-reposado-mizunara-4x5.jpg",
+    videoSrc: "",
     headline: "Where Tradition Meets Mastery",
     subheadline: "A journey through the art of ultra-premium tequila",
   },
   brandStory: {
     heading: "The Pursuit of Perfection",
     body: [
-      "Casa Dragones is an ultra-premium small batch tequila founded on a passion for innovation and a deep reverence for tequila-making tradition. Each expression is a masterwork — meticulously crafted in the highlands of Jalisco using 100% pure Blue Weber Agave.",
-      "From the moment the agave is hand-selected to the final bottling in its signature crystal decanter, every detail reflects an uncompromising commitment to excellence. This is tequila elevated to art.",
+      "Casa Dragones is an ultra-premium small batch tequila founded on a passion for innovation and a deep reverence for tequila-making tradition. Each expression is meticulously handcrafted to deliver an extraordinary sipping experience — from hand-selected Blue Weber Agave grown in volcanic soil to the final pour.",
+      "Our journey of taste begins with a modern, sustainable method of production in the highlands of Jalisco. Water sourced from natural spring aquifers, mineral-rich from volcanic soil, and precision-purified for balance. This is tequila elevated to art.",
     ],
   },
   products: [
@@ -30,39 +31,65 @@ export const siteConfig = {
       id: "reposado-mizunara",
       name: "Casa Dragones Reposado Mizunara",
       shortName: "Reposado Mizunara",
-      tagline: "The First of Its Kind",
+      tagline: "The First Tequila Rested Exclusively in Japanese Mizunara Oak",
       description:
-        "The first tequila rested exclusively in new Japanese Mizunara oak casks. This groundbreaking expression marries the smooth, refined character of Casa Dragones tequila with the rare and coveted Mizunara oak — prized for its complex aromatics of sandalwood, coconut, and oriental incense.",
+        "Casa Dragones Reposado Mizunara is the first tequila rested exclusively in new Mizunara casks, a rare oak native to Japan and traditionally used for aging Japanese whiskies. Crafted in partnership with Japan's only independent cooperage, these ancient trees can grow up to 200 years before they are harvested and handcrafted into the highest quality casks. This delicately rested tequila delivers subtle notes of orange blossom, apricot and coffee bean — perfect for the discerning reposado or Japanese whisky lover.",
       tastingNotes: {
-        nose: "Delicate sandalwood, toasted coconut, hints of oriental incense and vanilla",
-        palate:
-          "Silky smooth entry with notes of caramel, dried fruit, and subtle spice from the Mizunara oak",
-        finish:
-          "Long, elegant finish with lingering notes of Japanese oak and sweet agave",
+        nose: "Orange blossom, magnolia with gentle notes of honey and sandalwood",
+        palate: "Balanced notes of oak, butterscotch and apricot",
+        finish: "Long finish with hints of coffee bean and mellow spice",
       },
-      imageSrc: "/assets/products/tequila-casa-dragones-reposado-750-US.png",
-      accent: "mizunara", // used for theming
+      body: "Light, bright golden with a silky texture, and long pronounced legs",
+      imageSrc: "/assets/products/tequila-casa-dragones-reposado-750-US-bottle.png",
+      heroImageSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
+      accent: "mizunara",
       ctaText: "Explore Reposado Mizunara",
       ctaUrl: "https://casadragones.com",
+      serving: "Best served neat or with a small ice cube",
+      quotes: [
+        {
+          text: "A tequila to celebrate the finest Mexico can offer.",
+          source: "The New York Times",
+        },
+        {
+          text: "I love the smooth texture and beautiful apricot notes of the Reposado Mizunara.",
+          source: "Chef Masa Takayama, Chef-Proprietor, Masa & Bar Masa",
+        },
+        {
+          text: "Mexico meets Japan with this new, aged tequila.",
+          source: "Robb Report",
+        },
+      ],
     },
     {
       id: "anejo-barrel-blend",
       name: "Casa Dragones Añejo Barrel Blend",
       shortName: "Añejo Barrel Blend",
-      tagline: "Selected as Food & Wine Top Picks 2020",
+      tagline: "An Extraordinary Barrel Blend",
       description:
-        "A masterful blend of Casa Dragones tequilas aged in new American and French oak barrels, then finished in Sonoma County red wine casks. The result is an exquisitely complex añejo with remarkable depth and balance — recognized by Food & Wine as a Top Pick.",
+        "A 100% Blue Agave Añejo tequila matured in two different wood barrels — new French Oak and new American Oak — each selected for their individual flavor and characteristics. Working with one of France's most respected cooperages, our Maestro Tequilero and Master Cooper expertly crafted two custom-made oak barrels. At the end of the aging process, we artfully blend both barrel styles together to create infinite richness and an agave-forward taste profile that is both elegant and smooth.",
       tastingNotes: {
-        nose: "Rich butterscotch, toasted oak, dried apricot, and a whisper of dark chocolate",
-        palate:
-          "Velvety layers of caramel, roasted agave, baking spices, and hints of red berry from the wine cask finish",
-        finish:
-          "Warm, lingering finish with notes of vanilla, cinnamon, and a touch of leather",
+        nose: "Fresh floral, pear with notes of figs and almonds",
+        palate: "Notes of macadamia, nutmeg and blackberry",
+        finish: "Long round finish, notes of cacao, spicy black pepper",
       },
-      imageSrc: "/assets/products/tequila-casa-dragones-anejo-750-US.png",
+      body: "Light caramel, with bright hues and pronounced legs",
+      imageSrc: "/assets/products/tequila-casa-dragones-anejo-750-US-bottle.png",
+      heroImageSrc: "/assets/hero/casa-dragones-anejo-barrel-blend-16x9.jpg",
       accent: "anejo",
       ctaText: "Explore Añejo Barrel Blend",
       ctaUrl: "https://casadragones.com",
+      serving: "Best served neat or with a small ice cube",
+      quotes: [
+        {
+          text: "A luxurious sipping tequila matured in French and American oak… a refreshing alternative to gifting a bottle of scotch.",
+          source: "Food & Wine",
+        },
+        {
+          text: "You have another winner. It's beautiful and the body and color are extraordinary.",
+          source: "Chef Thomas Keller, Chef-Proprietor, The French Laundry & Per Se",
+        },
+      ],
     },
   ],
   accolades: [
@@ -85,9 +112,9 @@ export const siteConfig = {
       product: "Añejo Barrel Blend",
     },
     {
-      quote: "Ultimate Spirits Challenge",
-      source: "96 Points, Chairman's Trophy",
-      detail: "Extraordinary",
+      quote: "Chairman's Trophy",
+      source: "Ultimate Spirits Challenge",
+      detail: "96 Points — Extraordinary",
       product: "Casa Dragones Joven",
     },
   ],
@@ -96,13 +123,13 @@ export const siteConfig = {
       id: "reposado-mizunara-video",
       title: "Casa Dragones Reposado Mizunara",
       vimeoId: "744805235",
-      posterSrc: "/assets/products/tequila-casa-dragones-reposado-750-US.png",
+      posterSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
     },
     {
       id: "anejo-barrel-blend-video",
       title: "Casa Dragones Añejo Barrel Blend",
       vimeoId: "427150598",
-      posterSrc: "/assets/products/tequila-casa-dragones-anejo-750-US.png",
+      posterSrc: "/assets/hero/casa-dragones-anejo-barrel-blend-16x9.jpg",
     },
   ],
   cta: {
@@ -114,8 +141,8 @@ export const siteConfig = {
   seo: {
     title: "Casa Dragones — Ultra-Premium Tequila | Whisky Advocate",
     description:
-      "Discover Casa Dragones ultra-premium tequila. Featuring the groundbreaking Reposado Mizunara and award-winning Añejo Barrel Blend. Presented by Whisky Advocate.",
-    ogImage: "/assets/hero/casa-dragones-anejo-barrel-blend-cigar-16x9.jpg",
+      "Discover Casa Dragones ultra-premium tequila. Featuring the groundbreaking Reposado Mizunara aged in rare Japanese oak and the award-winning Añejo Barrel Blend. Presented by Whisky Advocate.",
+    ogImage: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
   },
 };
 
