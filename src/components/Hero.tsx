@@ -52,9 +52,8 @@ export default function Hero() {
         </motion.div>
       )}
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-brand-black/70 via-brand-black/20 to-brand-black" />
-      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-brand-black/30 via-transparent to-brand-black/30" />
+      {/* Gradient overlays — lighter to let imagery show */}
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black/80" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
@@ -100,7 +99,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 1 }}
-          className="max-w-xl text-sm uppercase tracking-[0.15em] text-brand-cream/60 md:text-base"
+          className="max-w-xl text-sm uppercase tracking-[0.15em] text-brand-cream/90 md:text-base"
         >
           {hero.subheadline}
         </motion.p>
@@ -126,7 +125,7 @@ export default function Hero() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-[0.6rem] uppercase tracking-[0.3em] text-brand-cream/40">
+          <span className="text-[0.6rem] uppercase tracking-[0.3em] text-brand-cream/60">
             Scroll
           </span>
           <svg

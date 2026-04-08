@@ -12,7 +12,7 @@ export default function Accolades() {
     <Section
       id="accolades"
       fullBleed
-      className="border-y border-brand-blue/10 bg-gradient-to-b from-brand-black via-brand-charcoal/50 to-brand-black py-24 md:py-32"
+      className="border-y border-brand-blue/15 bg-gradient-to-b from-brand-charcoal/60 via-brand-charcoal to-brand-charcoal/60 py-24 md:py-32"
     >
       <motion.div
         variants={staggerContainer}
@@ -44,13 +44,13 @@ export default function Accolades() {
               >
                 {accolade.quote}
               </p>
-              <p className="mb-3 text-sm font-medium tracking-wide text-brand-cream/80">
+              <p className="mb-3 text-sm font-medium tracking-wide text-brand-cream">
                 {accolade.source}
               </p>
-              <p className="mb-1 text-xs text-brand-cream/40">
+              <p className="mb-1 text-xs text-brand-cream/70">
                 {accolade.detail}
               </p>
-              <p className="text-[0.65rem] uppercase tracking-[0.15em] text-brand-blue/40">
+              <p className="text-[0.65rem] uppercase tracking-[0.15em] text-brand-blue/70">
                 {accolade.product}
               </p>
             </motion.div>

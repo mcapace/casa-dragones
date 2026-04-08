@@ -87,7 +87,7 @@ export default function VideoSection() {
           >
             The Craft
           </h2>
-          <p className="text-sm tracking-wide text-brand-cream/50">
+          <p className="text-sm tracking-wide text-brand-cream/75">
             Experience the artistry behind each expression
           </p>
         </motion.div>

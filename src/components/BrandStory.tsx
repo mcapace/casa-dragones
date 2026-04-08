@@ -34,7 +34,7 @@ export default function BrandStory() {
           <motion.p
             key={i}
             variants={fadeUp}
-            className="mb-6 text-base leading-relaxed text-brand-cream/70 last:mb-0 md:text-lg md:leading-relaxed"
+            className="mb-6 text-base leading-relaxed text-brand-cream/90 last:mb-0 md:text-lg md:leading-relaxed"
           >
             {paragraph}
           </motion.p>

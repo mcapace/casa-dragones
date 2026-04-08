@@ -18,8 +18,8 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
       id={product.id}
       className={`relative overflow-hidden py-24 md:py-36 ${
         isMizunara
-          ? "bg-gradient-to-b from-brand-black via-[#0A0E11] to-brand-black"
-          : "bg-gradient-to-b from-brand-black via-[#110E08] to-brand-black"
+          ? "bg-gradient-to-b from-[#0F1215] via-[#141A1E] to-[#0F1215]"
+          : "bg-gradient-to-b from-[#14110D] via-[#1A1610] to-[#14110D]"
       }`}
     >
       {/* Accent background texture */}
@@ -89,24 +89,24 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
           {/* Description */}
           <motion.p
             variants={fadeUp}
-            className="mb-8 text-base leading-relaxed text-brand-cream/70 md:text-lg"
+            className="mb-8 text-base leading-relaxed text-brand-cream/90 md:text-lg"
           >
             {product.description}
           </motion.p>
 
           {/* Body & Color */}
           <motion.div variants={fadeUp} className="mb-6">
-            <h3 className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-brand-cream/50">
+            <h3 className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-brand-cream/70">
               Body & Color
             </h3>
-            <p className="text-sm leading-relaxed italic text-brand-cream/60">
+            <p className="text-sm leading-relaxed italic text-brand-cream/80">
               {product.body}
             </p>
           </motion.div>
 
           {/* Tasting Notes */}
           <motion.div variants={fadeUp} className="mb-8 space-y-4">
-            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-brand-cream/50">
+            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-brand-cream/70">
               Tasting Notes
             </h3>
             <div className="space-y-3">
@@ -115,7 +115,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
                   <span className="w-16 shrink-0 text-xs font-medium uppercase tracking-widest text-brand-blue/70">
                     {note === "palate" ? "taste" : note}
                   </span>
-                  <span className="text-sm leading-relaxed text-brand-cream/60">
+                  <span className="text-sm leading-relaxed text-brand-cream/80">
                     {product.tastingNotes[note]}
                   </span>
                 </div>
@@ -126,7 +126,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
           {/* Serving suggestion */}
           <motion.p
             variants={fadeUp}
-            className="mb-8 text-xs italic tracking-wide text-brand-cream/40"
+            className="mb-8 text-xs italic tracking-wide text-brand-cream/60"
           >
             {product.serving}
           </motion.p>
@@ -140,7 +140,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
               <p className="mb-1 text-sm italic leading-relaxed text-brand-cream/70">
                 &ldquo;{product.quotes[0].text}&rdquo;
               </p>
-              <cite className="text-xs not-italic tracking-wide text-brand-cream/40">
+              <cite className="text-xs not-italic tracking-wide text-brand-cream/60">
                 — {product.quotes[0].source}
               </cite>
             </motion.blockquote>

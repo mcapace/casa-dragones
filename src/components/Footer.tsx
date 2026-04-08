@@ -45,7 +45,7 @@ export default function Footer() {
 
           <motion.p
             variants={fadeUp}
-            className="mb-10 text-base leading-relaxed text-brand-cream/60 md:text-lg"
+            className="mb-10 text-base leading-relaxed text-brand-cream/85 md:text-lg"
           >
             {cta.body}
           </motion.p>
@@ -89,7 +89,7 @@ export default function Footer() {
                 height={50}
                 className="h-8 w-auto"
               />
-              <p className="text-xs tracking-wide text-brand-cream/40">
+              <p className="text-xs tracking-wide text-brand-cream/60">
                 A publication of {publisher.parent}
               </p>
             </div>
@@ -113,12 +113,12 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
             <div className="flex flex-col gap-1">
               <span className="sponsored-label">Sponsored Content</span>
-              <p className="text-[0.6rem] leading-relaxed tracking-wide text-brand-cream/30">
+              <p className="text-[0.6rem] leading-relaxed tracking-wide text-brand-cream/50">
                 This content was produced in collaboration with Casa Dragones and does not reflect
                 the editorial opinion of {publisher.name}.
               </p>
             </div>
-            <p className="shrink-0 text-[0.6rem] tracking-wide text-brand-cream/30">
+            <p className="shrink-0 text-[0.6rem] tracking-wide text-brand-cream/50">
               &copy; {new Date().getFullYear()} {publisher.parent}. All rights reserved.
               <br />
               Please sip responsibly.
