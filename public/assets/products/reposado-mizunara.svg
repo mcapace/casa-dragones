@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" fill="none">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="repo-bg" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#151008"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </radialGradient>
+
+    <!-- Bottle highlight gradient -->
+    <linearGradient id="bottle-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B7355" stop-opacity="0.3"/>
+      <stop offset="25%" stop-color="#C9A96E" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#D4B87A" stop-opacity="0.8"/>
+      <stop offset="75%" stop-color="#C9A96E" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#8B7355" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Bottle body fill -->
+    <linearGradient id="bottle-fill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1A1205" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#2A1F10" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#332816" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#2A1F10" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#1A1205" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Liquid gradient -->
+    <linearGradient id="liquid-repo" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#8B7355" stop-opacity="0.08"/>
+    </linearGradient>
+
+    <!-- Glow behind bottle -->
+    <radialGradient id="bottle-glow" cx="50%" cy="40%" r="25%">
+      <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Label gradient -->
+    <linearGradient id="label-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.05"/>
+      <stop offset="50%" stop-color="#C9A96E" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#C9A96E" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <!-- Vignette -->
+    <radialGradient id="repo-vignette" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#0A0A0A" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0.8"/>
+    </radialGradient>
+
+    <!-- Noise filter -->
+    <filter id="prod-noise-1">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.03"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" mode="overlay"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#repo-bg)"/>
+
+  <!-- Ambient glow -->
+  <rect width="600" height="800" fill="url(#bottle-glow)"/>
+
+  <!-- Bottle silhouette -->
+  <g transform="translate(300, 80)">
+    <!-- Bottle cap/cork -->
+    <rect x="-10" y="0" width="20" height="25" rx="2" fill="#8B7355" opacity="0.5"/>
+    <rect x="-8" y="2" width="16" height="20" rx="1" fill="#C9A96E" opacity="0.3"/>
+
+    <!-- Neck -->
+    <path d="M-12,25 L-12,80 Q-12,95 -30,110 L-30,110" fill="url(#bottle-fill)" stroke="url(#bottle-gold)" stroke-width="0.8"/>
+    <path d="M12,25 L12,80 Q12,95 30,110 L30,110" fill="url(#bottle-fill)" stroke="url(#bottle-gold)" stroke-width="0.8"/>
+    <!-- Neck fill -->
+    <rect x="-12" y="25" width="24" height="55" fill="url(#bottle-fill)"/>
+
+    <!-- Shoulder curves -->
+    <path d="M-12,80 C-12,105 -55,115 -55,120" stroke="url(#bottle-gold)" stroke-width="0.8" fill="none"/>
+    <path d="M12,80 C12,105 55,115 55,120" stroke="url(#bottle-gold)" stroke-width="0.8" fill="none"/>
+
+    <!-- Body -->
+    <rect x="-55" y="120" width="110" height="380" rx="3" fill="url(#bottle-fill)"/>
+    <rect x="-55" y="120" width="110" height="380" rx="3" stroke="url(#bottle-gold)" stroke-width="0.8" fill="none"/>
+
+    <!-- Shoulder fill -->
+    <path d="M-12,80 C-12,105 -55,115 -55,120 L55,120 C55,115 12,105 12,80 Z" fill="url(#bottle-fill)"/>
+
+    <!-- Highlight streak on bottle -->
+    <rect x="-20" y="120" width="8" height="380" rx="4" fill="#C9A96E" opacity="0.06"/>
+    <rect x="25" y="120" width="3" height="380" rx="1.5" fill="#C9A96E" opacity="0.04"/>
+
+    <!-- Label area -->
+    <rect x="-45" y="220" width="90" height="120" rx="1" fill="url(#label-grad)"/>
+    <line x1="-40" y1="230" x2="40" y2="230" stroke="#C9A96E" stroke-width="0.3" opacity="0.4"/>
+    <line x1="-40" y1="330" x2="40" y2="330" stroke="#C9A96E" stroke-width="0.3" opacity="0.4"/>
+
+    <!-- Label text hints -->
+    <text x="0" y="265" text-anchor="middle" font-family="'Georgia', serif" font-size="7" letter-spacing="3" fill="#C9A96E" opacity="0.5">CASA</text>
+    <text x="0" y="280" text-anchor="middle" font-family="'Georgia', serif" font-size="5.5" letter-spacing="2" fill="#C9A96E" opacity="0.4">DRAGONES</text>
+    <rect x="-25" y="290" width="50" height="0.3" fill="#C9A96E" opacity="0.3"/>
+    <text x="0" y="305" text-anchor="middle" font-family="'Georgia', serif" font-size="5" letter-spacing="1.5" fill="#C9A96E" opacity="0.35">REPOSADO</text>
+
+    <!-- Liquid level suggestion -->
+    <rect x="-53" y="180" width="106" height="318" rx="2" fill="url(#liquid-repo)" opacity="0.5"/>
+
+    <!-- Bottom of bottle -->
+    <path d="M-55,500 Q-55,515 -45,520 L45,520 Q55,515 55,500" fill="url(#bottle-fill)" stroke="url(#bottle-gold)" stroke-width="0.8"/>
+
+    <!-- Base reflection -->
+    <ellipse cx="0" cy="530" rx="60" ry="8" fill="#C9A96E" opacity="0.03"/>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="800" fill="url(#repo-vignette)"/>
+
+  <!-- Product name at bottom -->
+  <text x="300" y="710" text-anchor="middle" font-family="'Georgia', 'Times New Roman', serif" font-size="16" letter-spacing="6" fill="#C9A96E" opacity="0.85">REPOSADO</text>
+  <text x="300" y="735" text-anchor="middle" font-family="'Georgia', 'Times New Roman', serif" font-size="12" letter-spacing="4" fill="#C9A96E" opacity="0.6">MIZUNARA</text>
+
+  <!-- Decorative lines around text -->
+  <line x1="200" y1="695" x2="400" y2="695" stroke="#C9A96E" stroke-width="0.4" opacity="0.3"/>
+  <line x1="220" y1="748" x2="380" y2="748" stroke="#C9A96E" stroke-width="0.3" opacity="0.2"/>
+
+  <!-- Grain overlay -->
+  <rect width="600" height="800" filter="url(#prod-noise-1)" fill="transparent" opacity="0.5"/>
+</svg>

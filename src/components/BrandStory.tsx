@@ -1,0 +1,54 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Section from "./Section";
+import { siteConfig } from "@/lib/content";
+import { fadeUp, staggerContainer } from "@/lib/animations";
+
+export default function BrandStory() {
+  const { brandStory } = siteConfig;
+
+  return (
+    <Section id="brand-story" className="py-28 md:py-40">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="mx-auto max-w-3xl text-center"
+      >
+        {/* Decorative element */}
+        <motion.div variants={fadeUp} className="mb-8 flex justify-center">
+          <div className="h-12 w-[1px] bg-gradient-to-b from-transparent via-brand-gold/40 to-transparent" />
+        </motion.div>
+
+        <motion.h2
+          variants={fadeUp}
+          className="mb-10 text-3xl font-light tracking-wide text-brand-cream md:text-4xl lg:text-5xl"
+          style={{ fontFamily: "var(--font-playfair)" }}
+        >
+          {brandStory.heading}
+        </motion.h2>
+
+        {brandStory.body.map((paragraph, i) => (
+          <motion.p
+            key={i}
+            variants={fadeUp}
+            className="mb-6 text-base leading-relaxed text-brand-cream/70 last:mb-0 md:text-lg md:leading-relaxed"
+          >
+            {paragraph}
+          </motion.p>
+        ))}
+
+        {/* Decorative element */}
+        <motion.div variants={fadeUp} className="mt-12 flex justify-center">
+          <div className="flex items-center gap-4">
+            <div className="h-[1px] w-12 bg-brand-gold/30" />
+            <div className="h-1.5 w-1.5 rotate-45 border border-brand-gold/40" />
+            <div className="h-[1px] w-12 bg-brand-gold/30" />
+          </div>
+        </motion.div>
+      </motion.div>
+    </Section>
+  );
+}
