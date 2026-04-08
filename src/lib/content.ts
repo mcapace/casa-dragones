@@ -49,16 +49,8 @@ export const siteConfig = {
       serving: "Best served neat or with a small ice cube",
       quotes: [
         {
-          text: "A tequila to celebrate the finest Mexico can offer.",
-          source: "The New York Times",
-        },
-        {
           text: "I love the smooth texture and beautiful apricot notes of the Reposado Mizunara.",
           source: "Chef Masa Takayama, Chef-Proprietor, Masa & Bar Masa",
-        },
-        {
-          text: "Mexico meets Japan with this new, aged tequila.",
-          source: "Robb Report",
         },
       ],
     },
@@ -83,10 +75,6 @@ export const siteConfig = {
       serving: "Best served neat or with a small ice cube",
       quotes: [
         {
-          text: "A luxurious sipping tequila matured in French and American oak… a refreshing alternative to gifting a bottle of scotch.",
-          source: "Food & Wine",
-        },
-        {
           text: "You have another winner. It's beautiful and the body and color are extraordinary.",
           source: "Chef Thomas Keller, Chef-Proprietor, The French Laundry & Per Se",
         },
@@ -95,28 +83,28 @@ export const siteConfig = {
   ],
   accolades: [
     {
-      quote: "96 Points",
-      source: "Wine Enthusiast",
-      detail: "Highest rated tequila",
-      product: "Casa Dragones Joven",
-    },
-    {
-      quote: "Best Blanco Tequila",
-      source: "Epicurious",
-      detail: "Editor's Pick",
-      product: "Casa Dragones Blanco",
-    },
-    {
-      quote: "Top Picks 2020",
-      source: "Food & Wine",
-      detail: "Selected by editors",
-      product: "Añejo Barrel Blend",
-    },
-    {
       quote: "Chairman's Trophy",
       source: "Ultimate Spirits Challenge",
       detail: "96 Points — Extraordinary",
       product: "Casa Dragones Joven",
+    },
+    {
+      quote: "First of Its Kind",
+      source: "Mizunara Oak Innovation",
+      detail: "The first tequila rested in Japanese oak",
+      product: "Reposado Mizunara",
+    },
+    {
+      quote: "100% Blue Agave",
+      source: "Small Batch Craftsmanship",
+      detail: "Hand-selected agave from Jalisco highlands",
+      product: "All Expressions",
+    },
+    {
+      quote: "Woman-Founded",
+      source: "Bertha González Nieves",
+      detail: "First certified female Maestra Tequilera",
+      product: "Casa Dragones",
     },
   ],
   videos: [
