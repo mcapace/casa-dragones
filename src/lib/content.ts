@@ -15,11 +15,11 @@ export const siteConfig = {
   },
   hero: {
     mediaType: "image" as "video" | "image",
-    imageSrc: "/assets/hero/casa-dragones-reposado-anejo-16x9.jpg",
-    mobileImageSrc: "/assets/hero/casa-dragones-reposado-anejo-4x5.jpg",
+    imageSrc: "/assets/hero/casa-dragones-anejo-reposado-us-16x9.jpg",
+    mobileImageSrc: "/assets/hero/casa-dragones-anejo-reposado-us-4x5.jpg",
     videoSrc: "",
-    headline: "Where Tradition Meets Mastery",
-    subheadline: "Ultra-premium small batch tequila — Woman-founded. Woman-led.",
+    headline: "Innovation Is the Foundation.",
+    subheadline: "Ultra-premium small batch sipping tequila",
   },
   brandStory: {
     heading: "The Pursuit of Perfection",
@@ -163,8 +163,8 @@ export const siteConfig = {
   seo: {
     title: "Casa Dragones — Ultra-Premium Tequila | Whisky Advocate",
     description:
-      "Discover Casa Dragones ultra-premium tequila. Featuring the groundbreaking Reposado Mizunara aged in rare Japanese oak and the award-winning Añejo Barrel Blend. Presented by Whisky Advocate.",
-    ogImage: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
+      "Discover Casa Dragones ultra-premium sipping tequila. Featuring the groundbreaking Reposado Mizunara aged in rare Japanese oak and the award-winning Añejo Barrel Blend. Presented by Whisky Advocate.",
+    ogImage: "/assets/hero/casa-dragones-anejo-reposado-us-16x9.jpg",
   },
 };
 

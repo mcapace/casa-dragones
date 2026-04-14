@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import { type ReactNode } from "react";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { type ReactNode, useMemo } from "react";
 
 interface SectionProps {
   children: ReactNode;
@@ -20,6 +20,11 @@ const defaultVariants: Variants = {
   },
 };
 
+const reducedSectionVariants: Variants = {
+  hidden: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0 } },
+};
+
 export default function Section({
   children,
   className = "",
@@ -27,13 +32,19 @@ export default function Section({
   variants = defaultVariants,
   fullBleed = false,
 }: SectionProps) {
+  const prefersReducedMotion = useReducedMotion();
+  const resolvedVariants = useMemo(
+    () => (prefersReducedMotion ? reducedSectionVariants : variants),
+    [prefersReducedMotion, variants],
+  );
+
   return (
     <motion.section
       id={id}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      variants={variants}
+      variants={resolvedVariants}
       className={`relative ${fullBleed ? "" : "mx-auto max-w-[1200px] px-6 md:px-12"} ${className}`}
     >
       {children}

@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Section from "./Section";
 import { siteConfig } from "@/lib/content";
-import { fadeUp, staggerContainer } from "@/lib/animations";
+import { useScrollAnimationVariants } from "@/hooks/useScrollAnimationVariants";
 
 export default function Footer() {
   const { cta, brand, publisher } = siteConfig;
+  const anim = useScrollAnimationVariants();
 
   return (
     <footer className="relative">
@@ -18,14 +19,14 @@ export default function Footer() {
         className="bg-gradient-to-b from-brand-black via-brand-charcoal/30 to-brand-black py-28 md:py-40"
       >
         <motion.div
-          variants={staggerContainer}
+          variants={anim.staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           className="mx-auto max-w-2xl px-6 text-center md:px-12"
         >
           {/* Logo */}
-          <motion.div variants={fadeUp} className="mb-10 flex justify-center">
+          <motion.div variants={anim.fadeUp} className="mb-10 flex justify-center">
             <Image
               src={brand.logoBlu}
               alt={brand.name}
@@ -36,7 +37,7 @@ export default function Footer() {
           </motion.div>
 
           <motion.h2
-            variants={fadeUp}
+            variants={anim.fadeUp}
             className="mb-6 text-3xl font-light tracking-wide text-brand-cream md:text-4xl lg:text-5xl"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
@@ -44,14 +45,14 @@ export default function Footer() {
           </motion.h2>
 
           <motion.p
-            variants={fadeUp}
+            variants={anim.fadeUp}
             className="mb-10 text-base leading-relaxed text-brand-cream/85 md:text-lg"
           >
             {cta.body}
           </motion.p>
 
           <motion.a
-            variants={fadeUp}
+            variants={anim.fadeUp}
             href={cta.buttonUrl}
             target="_blank"
             rel="noopener noreferrer"

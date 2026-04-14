@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { type Product } from "@/lib/content";
-import { fadeUp, slideInLeft, slideInRight, staggerContainer } from "@/lib/animations";
+import { useScrollAnimationVariants } from "@/hooks/useScrollAnimationVariants";
 
 interface ProductFeatureProps {
   product: Product;
@@ -12,6 +12,7 @@ interface ProductFeatureProps {
 
 export default function ProductFeature({ product, reversed = false }: ProductFeatureProps) {
   const isMizunara = product.accent === "mizunara";
+  const anim = useScrollAnimationVariants();
 
   return (
     <section
@@ -32,7 +33,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
       />
 
       <motion.div
-        variants={staggerContainer}
+        variants={anim.staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -42,16 +43,14 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
       >
         {/* Product Image — LARGE and prominent */}
         <motion.div
-          variants={reversed ? slideInRight : slideInLeft}
+          variants={reversed ? anim.slideInRight : anim.slideInLeft}
           className="relative md:[direction:ltr]"
         >
           <div className="relative mx-auto aspect-[2/3] w-full max-w-lg overflow-hidden">
-            {/* Glow effect behind bottle */}
+            {/* Glow effect behind bottle — softer on Reposado to match retouch feedback */}
             <div
-              className={`absolute top-1/4 left-1/2 h-2/3 w-2/3 -translate-x-1/2 rounded-full blur-[80px] ${
-                isMizunara
-                  ? "bg-brand-blue/15"
-                  : "bg-brand-amber/15"
+              className={`absolute top-1/4 left-1/2 h-2/3 w-2/3 -translate-x-1/2 rounded-full ${
+                isMizunara ? "blur-[64px] bg-brand-blue/10" : "blur-[80px] bg-brand-amber/15"
               }`}
             />
             <Image
@@ -59,19 +58,30 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
               alt={product.name}
               fill
               sizes="(max-width: 768px) 90vw, 45vw"
-              className="relative z-10 object-contain drop-shadow-2xl"
+              className={
+                isMizunara
+                  ? "relative z-10 object-contain [filter:brightness(1.03)_contrast(0.94)_saturate(0.98)_drop-shadow(0_28px_56px_rgba(0,0,0,0.5))]"
+                  : "relative z-10 object-contain drop-shadow-2xl"
+              }
             />
+            {/* Bottom blend — helps bottle base read cleanly on dark ground (silo) */}
+            {isMizunara && (
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[28%] bg-gradient-to-t from-[#07090b] via-[#07090b]/70 to-transparent"
+                aria-hidden
+              />
+            )}
           </div>
         </motion.div>
 
         {/* Product Info */}
         <motion.div
-          variants={reversed ? slideInLeft : slideInRight}
+          variants={reversed ? anim.slideInLeft : anim.slideInRight}
           className="md:[direction:ltr]"
         >
           {/* Tagline */}
           <motion.p
-            variants={fadeUp}
+            variants={anim.fadeUp}
             className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-brand-blue"
           >
             {product.tagline}
@@ -79,7 +89,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
 
           {/* Name */}
           <motion.h2
-            variants={fadeUp}
+            variants={anim.fadeUp}
             className="mb-6 text-3xl font-light tracking-wide text-brand-cream md:text-4xl lg:text-5xl"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
@@ -88,14 +98,14 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
 
           {/* Description */}
           <motion.p
-            variants={fadeUp}
+            variants={anim.fadeUp}
             className="mb-8 text-base leading-relaxed text-brand-cream/90 md:text-lg"
           >
             {product.description}
           </motion.p>
 
           {/* Body & Color */}
-          <motion.div variants={fadeUp} className="mb-6">
+          <motion.div variants={anim.fadeUp} className="mb-6">
             <h3 className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-brand-cream/70">
               Body & Color
             </h3>
@@ -105,7 +115,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
           </motion.div>
 
           {/* Tasting Notes */}
-          <motion.div variants={fadeUp} className="mb-8 space-y-4">
+          <motion.div variants={anim.fadeUp} className="mb-8 space-y-4">
             <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-brand-cream/70">
               Tasting Notes
             </h3>
@@ -125,7 +135,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
 
           {/* Serving suggestion */}
           <motion.p
-            variants={fadeUp}
+            variants={anim.fadeUp}
             className="mb-8 text-xs italic tracking-wide text-brand-cream/60"
           >
             {product.serving}
@@ -134,7 +144,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
           {/* Quote */}
           {product.quotes[0] && (
             <motion.blockquote
-              variants={fadeUp}
+              variants={anim.fadeUp}
               className="mb-10 border-l-2 border-brand-blue/30 pl-5"
             >
               <p className="mb-1 text-sm italic leading-relaxed text-brand-cream/70">
@@ -148,7 +158,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
 
           {/* CTA */}
           <motion.a
-            variants={fadeUp}
+            variants={anim.fadeUp}
             href={product.ctaUrl}
             target="_blank"
             rel="noopener noreferrer"

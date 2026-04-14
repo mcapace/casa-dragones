@@ -1,5 +1,31 @@
 import type { Variants } from "framer-motion";
 
+const instant = { duration: 0 } as const;
+
+/** Use when `prefers-reduced-motion: reduce` — keeps layout, removes movement. */
+export const reducedFadeUp: Variants = {
+  hidden: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 0, transition: instant },
+};
+
+export const reducedStaggerContainer: Variants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0, delayChildren: 0 },
+  },
+};
+
+export const reducedSlideInLeft: Variants = {
+  hidden: { opacity: 1, x: 0 },
+  visible: { opacity: 1, x: 0, transition: instant },
+};
+
+export const reducedSlideInRight: Variants = {
+  hidden: { opacity: 1, x: 0 },
+  visible: { opacity: 1, x: 0, transition: instant },
+};
+
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {

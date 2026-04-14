@@ -3,10 +3,11 @@
 import { motion } from "framer-motion";
 import Section from "./Section";
 import { siteConfig } from "@/lib/content";
-import { fadeUp, staggerContainer } from "@/lib/animations";
+import { useScrollAnimationVariants } from "@/hooks/useScrollAnimationVariants";
 
 export default function Accolades() {
   const { accolades } = siteConfig;
+  const anim = useScrollAnimationVariants();
 
   return (
     <Section
@@ -15,14 +16,14 @@ export default function Accolades() {
       className="border-y border-brand-blue/15 bg-gradient-to-b from-brand-charcoal/60 via-brand-charcoal to-brand-charcoal/60 py-24 md:py-32"
     >
       <motion.div
-        variants={staggerContainer}
+        variants={anim.staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="mx-auto max-w-[1200px] px-6 md:px-12"
       >
         <motion.h2
-          variants={fadeUp}
+          variants={anim.fadeUp}
           className="mb-16 text-center text-xs font-medium uppercase tracking-[0.3em] text-brand-blue/70"
         >
           Recognition & Acclaim
@@ -32,8 +33,8 @@ export default function Accolades() {
           {accolades.map((accolade, i) => (
             <motion.div
               key={i}
-              variants={fadeUp}
-              className="group relative border border-brand-blue/10 bg-brand-black/50 p-8 text-center transition-all duration-500 hover:border-brand-blue/30 hover:bg-brand-charcoal/30"
+              variants={anim.fadeUp}
+              className="group relative border border-brand-blue/10 bg-brand-black/50 p-8 text-center transition-all duration-500 hover:border-brand-blue/30 hover:bg-brand-charcoal/30 motion-reduce:transition-none"
             >
               {/* Top accent line */}
               <div className="absolute top-0 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-brand-blue transition-all duration-500 group-hover:w-full" />

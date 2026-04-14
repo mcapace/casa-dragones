@@ -18,7 +18,7 @@ export default function Home() {
     <>
       <LoadingScreen />
       <StickyNav />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <BrandStory />
         <Founders />
