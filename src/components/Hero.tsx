@@ -67,7 +67,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="film-grain vignette relative flex h-screen items-center justify-center overflow-hidden"
+      className="film-grain vignette relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-14 pb-20"
     >
       {/* Background */}
       {hero.mediaType === "video" && hero.videoSrc ? (

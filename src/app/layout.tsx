@@ -48,7 +48,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-brand-black text-brand-cream antialiased">
         <a
           href="#main-content"
-          className="fixed left-4 top-4 z-[10000] -translate-y-[120%] rounded border border-brand-blue/50 bg-brand-black px-4 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-brand-cream shadow-lg transition-transform focus-visible:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-black"
+          className="fixed left-4 top-0 z-[10001] -translate-y-full rounded-b border border-t-0 border-brand-blue/50 bg-brand-black px-4 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-brand-cream shadow-lg transition-transform focus-visible:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-black"
         >
           Skip to content
         </a>
