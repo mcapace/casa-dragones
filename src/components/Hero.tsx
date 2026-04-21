@@ -43,7 +43,7 @@ function HeroZoomedBackground({
           style={{
             ...baseImgStyle,
             objectPosition: "center 48%",
-            transform: "scale(1.55)",
+            transform: "scale(1.12)",
             transformOrigin: "center 48%",
           }}
         />
@@ -60,7 +60,7 @@ function HeroZoomedBackground({
           style={{
             ...baseImgStyle,
             objectPosition: "center 46%",
-            transform: "scale(1.38)",
+            transform: "scale(1.06)",
             transformOrigin: "center 46%",
           }}
         />
