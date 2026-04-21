@@ -4,6 +4,55 @@ import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { siteConfig } from "@/lib/content";
 
+/**
+ * Hero art is a wide shot with lots of headroom. We need a real optical zoom:
+ * a layer much larger than the viewport, then `overflow-hidden` on the section.
+ *
+ * `next/image` + `fill` can size to the layout box in ways that defeat %-based
+ * parents, so we use a plain `<img>` with explicit vw/vh dimensions.
+ */
+function HeroZoomedBackground({
+  desktopSrc,
+  mobileSrc,
+  alt,
+}: {
+  desktopSrc: string;
+  mobileSrc: string;
+  alt: string;
+}) {
+  const desktopZoom = { w: "400vw", h: "400vh" as const };
+  const mobileZoom = { w: "280vw", h: "280vh" as const };
+
+  return (
+    <>
+      <div className="absolute inset-0 z-0 hidden overflow-hidden md:block">
+        <img
+          src={desktopSrc}
+          alt={alt}
+          width={1920}
+          height={1080}
+          decoding="sync"
+          fetchPriority="high"
+          className="pointer-events-none absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 select-none object-cover object-[center_48%]"
+          style={{ width: desktopZoom.w, height: desktopZoom.h }}
+        />
+      </div>
+      <div className="absolute inset-0 z-0 overflow-hidden md:hidden">
+        <img
+          src={mobileSrc}
+          alt={alt}
+          width={1080}
+          height={1350}
+          decoding="sync"
+          fetchPriority="high"
+          className="pointer-events-none absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 select-none object-cover object-[center_46%]"
+          style={{ width: mobileZoom.w, height: mobileZoom.h }}
+        />
+      </div>
+    </>
+  );
+}
+
 export default function Hero() {
   const { hero, brand } = siteConfig;
   const reduceMotion = useReducedMotion();
@@ -27,54 +76,25 @@ export default function Hero() {
         </video>
       ) : reduceMotion ? (
         <div className="absolute inset-0 overflow-hidden">
-          {/* Heavy zoom — source art has large margins; crop tight on bottles & glassware */}
-          <div className="absolute inset-0 origin-center scale-[1.72] md:scale-[2.12]">
-            <Image
-              src={hero.imageSrc}
-              alt={brand.name}
-              fill
-              priority
-              sizes="100vw"
-              className="hidden object-cover object-center md:block"
-            />
-            <Image
-              src={hero.mobileImageSrc}
-              alt={brand.name}
-              fill
-              priority
-              sizes="100vw"
-              className="block object-cover object-[center_48%] md:hidden"
-            />
-          </div>
+          <HeroZoomedBackground
+            desktopSrc={hero.imageSrc}
+            mobileSrc={hero.mobileImageSrc}
+            alt={brand.name}
+          />
         </div>
       ) : (
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 origin-center scale-[1.72] md:scale-[2.12]">
-            <motion.div
-              initial={{ scale: 1.03 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 8, ease: "easeOut" }}
-              className="absolute inset-0 origin-center"
-            >
-              <Image
-                src={hero.imageSrc}
-                alt={brand.name}
-                fill
-                priority
-                sizes="100vw"
-                className="hidden object-cover object-center md:block"
-              />
-              <Image
-                src={hero.mobileImageSrc}
-                alt={brand.name}
-                fill
-                priority
-                sizes="100vw"
-                className="block object-cover object-[center_48%] md:hidden"
-              />
-            </motion.div>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.1, ease: "easeOut" }}
+          className="absolute inset-0 overflow-hidden"
+        >
+          <HeroZoomedBackground
+            desktopSrc={hero.imageSrc}
+            mobileSrc={hero.mobileImageSrc}
+            alt={brand.name}
+          />
+        </motion.div>
       )}
 
       {/* Gradient overlays — lighter base + subtle vignette + center scrim for type */}
