@@ -27,14 +27,15 @@ export default function Hero() {
         </video>
       ) : reduceMotion ? (
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 origin-center scale-[1.14]">
+          {/* Strong zoom — source art is wide with lots of headroom; crop into the bottle cluster */}
+          <div className="absolute inset-0 origin-center scale-[1.34] md:scale-[1.58]">
             <Image
               src={hero.imageSrc}
               alt={brand.name}
               fill
               priority
               sizes="100vw"
-              className="hidden object-cover object-[center_42%] md:block"
+              className="hidden object-cover object-center md:block"
             />
             <Image
               src={hero.mobileImageSrc}
@@ -42,34 +43,38 @@ export default function Hero() {
               fill
               priority
               sizes="100vw"
-              className="block object-cover object-[center_45%] md:hidden"
+              className="block object-cover object-[center_48%] md:hidden"
             />
           </div>
         </div>
       ) : (
-        <motion.div
-          initial={{ scale: 1.22 }}
-          animate={{ scale: 1.14 }}
-          transition={{ duration: 8, ease: "easeOut" }}
-          className="absolute inset-0 origin-center overflow-hidden"
-        >
-          <Image
-            src={hero.imageSrc}
-            alt={brand.name}
-            fill
-            priority
-            sizes="100vw"
-            className="hidden object-cover object-[center_42%] md:block"
-          />
-          <Image
-            src={hero.mobileImageSrc}
-            alt={brand.name}
-            fill
-            priority
-            sizes="100vw"
-            className="block object-cover object-[center_45%] md:hidden"
-          />
-        </motion.div>
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 origin-center scale-[1.34] md:scale-[1.58]">
+            <motion.div
+              initial={{ scale: 1.05 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 8, ease: "easeOut" }}
+              className="absolute inset-0 origin-center"
+            >
+              <Image
+                src={hero.imageSrc}
+                alt={brand.name}
+                fill
+                priority
+                sizes="100vw"
+                className="hidden object-cover object-center md:block"
+              />
+              <Image
+                src={hero.mobileImageSrc}
+                alt={brand.name}
+                fill
+                priority
+                sizes="100vw"
+                className="block object-cover object-[center_48%] md:hidden"
+              />
+            </motion.div>
+          </div>
+        </div>
       )}
 
       {/* Gradient overlays — lighter base + subtle vignette + center scrim for type */}
