@@ -27,8 +27,8 @@ export default function Hero() {
         </video>
       ) : reduceMotion ? (
         <div className="absolute inset-0 overflow-hidden">
-          {/* Strong zoom — source art is wide with lots of headroom; crop into the bottle cluster */}
-          <div className="absolute inset-0 origin-center scale-[1.34] md:scale-[1.58]">
+          {/* Heavy zoom — source art has large margins; crop tight on bottles & glassware */}
+          <div className="absolute inset-0 origin-center scale-[1.72] md:scale-[2.12]">
             <Image
               src={hero.imageSrc}
               alt={brand.name}
@@ -49,9 +49,9 @@ export default function Hero() {
         </div>
       ) : (
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 origin-center scale-[1.34] md:scale-[1.58]">
+          <div className="absolute inset-0 origin-center scale-[1.72] md:scale-[2.12]">
             <motion.div
-              initial={{ scale: 1.05 }}
+              initial={{ scale: 1.03 }}
               animate={{ scale: 1 }}
               transition={{ duration: 8, ease: "easeOut" }}
               className="absolute inset-0 origin-center"
