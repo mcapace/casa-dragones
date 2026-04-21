@@ -6,8 +6,8 @@ import Image from "next/image";
 import { siteConfig } from "@/lib/content";
 
 /**
- * Hero: full-bleed `object-cover` (no scale — preflight caps arbitrary vw zoom).
- * `maxWidth: none` + explicit inset sizing keeps the image truly edge-to-edge.
+ * Hero: `object-cover` + slight `scale(0.93)` so the scene sits a bit smaller in
+ * the frame (edges show black); preflight-safe via `maxWidth: none` on img.
  */
 function HeroZoomedBackground({
   desktopSrc,
@@ -26,11 +26,13 @@ function HeroZoomedBackground({
     maxWidth: "none",
     objectFit: "cover",
     objectPosition: "center center",
+    transform: "scale(0.93)",
+    transformOrigin: "center center",
   };
 
   return (
     <>
-      <div className="absolute inset-0 z-0 hidden overflow-hidden md:block">
+      <div className="absolute inset-0 z-0 hidden overflow-hidden bg-brand-black md:block">
         <img
           src={desktopSrc}
           alt={alt}
@@ -42,7 +44,7 @@ function HeroZoomedBackground({
           style={baseImgStyle}
         />
       </div>
-      <div className="absolute inset-0 z-0 overflow-hidden md:hidden">
+      <div className="absolute inset-0 z-0 overflow-hidden bg-brand-black md:hidden">
         <img
           src={mobileSrc}
           alt={alt}
