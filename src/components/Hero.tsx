@@ -6,10 +6,8 @@ import Image from "next/image";
 import { siteConfig } from "@/lib/content";
 
 /**
- * Hero zoom: Tailwind preflight sets `img { max-width: 100%; height: auto }`, so
- * vw-based widths never exceed the viewport — zoom looked like a no-op. We fill
- * the hero with the image, then `transform: scale()` so overflow clips a tighter
- * crop on the bottles (section has `overflow-hidden`).
+ * Hero: full-bleed `object-cover` (no scale — preflight caps arbitrary vw zoom).
+ * `maxWidth: none` + explicit inset sizing keeps the image truly edge-to-edge.
  */
 function HeroZoomedBackground({
   desktopSrc,
@@ -27,6 +25,7 @@ function HeroZoomedBackground({
     height: "100%",
     maxWidth: "none",
     objectFit: "cover",
+    objectPosition: "center center",
   };
 
   return (
@@ -40,12 +39,7 @@ function HeroZoomedBackground({
           decoding="sync"
           fetchPriority="high"
           className="pointer-events-none select-none"
-          style={{
-            ...baseImgStyle,
-            objectPosition: "center 48%",
-            transform: "scale(1.12)",
-            transformOrigin: "center 48%",
-          }}
+          style={baseImgStyle}
         />
       </div>
       <div className="absolute inset-0 z-0 overflow-hidden md:hidden">
@@ -57,12 +51,7 @@ function HeroZoomedBackground({
           decoding="sync"
           fetchPriority="high"
           className="pointer-events-none select-none"
-          style={{
-            ...baseImgStyle,
-            objectPosition: "center 46%",
-            transform: "scale(1.06)",
-            transformOrigin: "center 46%",
-          }}
+          style={baseImgStyle}
         />
       </div>
     </>
