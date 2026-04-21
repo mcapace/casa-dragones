@@ -29,7 +29,7 @@ export const siteConfig = {
     ],
   },
   founders: {
-    heading: "It Started With a Promise",
+    heading: "It Started with a Promise",
     body: "In 2009, Bertha González Nieves — the first woman ever certified as a Maestra Tequilera — joined forces with Robert W. Pittman, co-founder of MTV, with a shared vision: to reimagine tequila as a spirit to be savored, not rushed. What began as a passion project became Casa Dragones Joven, a small-batch sipping tequila crafted to stand alongside the world's finest spirits.",
     founderName: "Bertha González Nieves",
     founderTitle: "CEO & Co-founder, First Certified Female Maestra Tequilera",
@@ -40,7 +40,7 @@ export const siteConfig = {
     features: [
       {
         title: "Volcanic Terroir",
-        description: "Our Agave Azul Tequilana Weber grows for approximately seven years in the volcanic soil of the Trans-Mexican Volcanic Belt — rich in silica, potassium, and obsidian lava rock. Each plant is hand-selected at peak ripeness.",
+        description: "Our 100% Blue Weber agave grows for approximately seven years in the volcanic soil of the Trans-Mexican Volcanic Belt — rich in silica, potassium, and obsidian lava rock. Each plant is hand-selected at peak ripeness.",
       },
       {
         title: "Pure Spring Water",

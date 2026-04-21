@@ -26,30 +26,32 @@ export default function Hero() {
           <source src={hero.videoSrc} type="video/mp4" />
         </video>
       ) : reduceMotion ? (
-        <div className="absolute inset-0">
-          <Image
-            src={hero.imageSrc}
-            alt={brand.name}
-            fill
-            priority
-            sizes="100vw"
-            className="hidden object-cover md:block"
-          />
-          <Image
-            src={hero.mobileImageSrc}
-            alt={brand.name}
-            fill
-            priority
-            sizes="100vw"
-            className="block object-cover md:hidden"
-          />
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 origin-center scale-[1.14]">
+            <Image
+              src={hero.imageSrc}
+              alt={brand.name}
+              fill
+              priority
+              sizes="100vw"
+              className="hidden object-cover object-[center_42%] md:block"
+            />
+            <Image
+              src={hero.mobileImageSrc}
+              alt={brand.name}
+              fill
+              priority
+              sizes="100vw"
+              className="block object-cover object-[center_45%] md:hidden"
+            />
+          </div>
         </div>
       ) : (
         <motion.div
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
+          initial={{ scale: 1.22 }}
+          animate={{ scale: 1.14 }}
           transition={{ duration: 8, ease: "easeOut" }}
-          className="absolute inset-0"
+          className="absolute inset-0 origin-center overflow-hidden"
         >
           <Image
             src={hero.imageSrc}
@@ -57,7 +59,7 @@ export default function Hero() {
             fill
             priority
             sizes="100vw"
-            className="hidden object-cover md:block"
+            className="hidden object-cover object-[center_42%] md:block"
           />
           <Image
             src={hero.mobileImageSrc}
@@ -65,7 +67,7 @@ export default function Hero() {
             fill
             priority
             sizes="100vw"
-            className="block object-cover md:hidden"
+            className="block object-cover object-[center_45%] md:hidden"
           />
         </motion.div>
       )}
