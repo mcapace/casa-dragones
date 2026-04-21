@@ -1,15 +1,15 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { siteConfig } from "@/lib/content";
 
 /**
- * Hero art is a wide shot with lots of headroom. We need a real optical zoom:
- * a layer much larger than the viewport, then `overflow-hidden` on the section.
- *
- * `next/image` + `fill` can size to the layout box in ways that defeat %-based
- * parents, so we use a plain `<img>` with explicit vw/vh dimensions.
+ * Hero zoom: Tailwind preflight sets `img { max-width: 100%; height: auto }`, so
+ * vw-based widths never exceed the viewport — zoom looked like a no-op. We fill
+ * the hero with the image, then `transform: scale()` so overflow clips a tighter
+ * crop on the bottles (section has `overflow-hidden`).
  */
 function HeroZoomedBackground({
   desktopSrc,
@@ -20,8 +20,14 @@ function HeroZoomedBackground({
   mobileSrc: string;
   alt: string;
 }) {
-  const desktopZoom = { w: "400vw", h: "400vh" as const };
-  const mobileZoom = { w: "280vw", h: "280vh" as const };
+  const baseImgStyle: CSSProperties = {
+    position: "absolute",
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    maxWidth: "none",
+    objectFit: "cover",
+  };
 
   return (
     <>
@@ -33,8 +39,13 @@ function HeroZoomedBackground({
           height={1080}
           decoding="sync"
           fetchPriority="high"
-          className="pointer-events-none absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 select-none object-cover object-[center_48%]"
-          style={{ width: desktopZoom.w, height: desktopZoom.h }}
+          className="pointer-events-none select-none"
+          style={{
+            ...baseImgStyle,
+            objectPosition: "center 48%",
+            transform: "scale(2.95)",
+            transformOrigin: "center 48%",
+          }}
         />
       </div>
       <div className="absolute inset-0 z-0 overflow-hidden md:hidden">
@@ -45,8 +56,13 @@ function HeroZoomedBackground({
           height={1350}
           decoding="sync"
           fetchPriority="high"
-          className="pointer-events-none absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 select-none object-cover object-[center_46%]"
-          style={{ width: mobileZoom.w, height: mobileZoom.h }}
+          className="pointer-events-none select-none"
+          style={{
+            ...baseImgStyle,
+            objectPosition: "center 46%",
+            transform: "scale(2.35)",
+            transformOrigin: "center 46%",
+          }}
         />
       </div>
     </>
