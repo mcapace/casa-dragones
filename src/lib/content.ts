@@ -78,7 +78,7 @@ export const siteConfig = {
       heroImageSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
       accent: "mizunara",
       ctaText: "Explore Reposado Mizunara",
-      ctaUrl: "https://casadragones.com/us/sipping-tequilas/reposado/",
+      ctaUrl: "https://casadragones.com/us/sipping-tequila/casa-dragones-reposado/",
       serving: "Best served neat or with a small ice cube",
       quotes: [
         {
@@ -104,7 +104,7 @@ export const siteConfig = {
       heroImageSrc: "/assets/hero/casa-dragones-anejo-barrel-blend-16x9.jpg",
       accent: "anejo",
       ctaText: "Explore Añejo Barrel Blend",
-      ctaUrl: "https://casadragones.com/us/sipping-tequilas/anejo/",
+      ctaUrl: "https://casadragones.com/us/sipping-tequila/casa-dragones-anejo/",
       serving: "Best served neat or with a small ice cube",
       quotes: [
         {
@@ -144,7 +144,9 @@ export const siteConfig = {
     {
       id: "reposado-mizunara-video",
       title: "Casa Dragones Reposado Mizunara",
-      vimeoId: "744805235",
+      vimeoId: "752696089",
+      /** Required for Vimeo privacy / unlisted embeds (matches casadragones.com product page). */
+      vimeoHash: "9c183025bf",
       posterSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
     },
     {

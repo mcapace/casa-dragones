@@ -50,7 +50,7 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
             {/* Glow effect behind bottle — softer on Reposado to match retouch feedback */}
             <div
               className={`absolute top-1/4 left-1/2 h-2/3 w-2/3 -translate-x-1/2 rounded-full ${
-                isMizunara ? "blur-[64px] bg-brand-blue/10" : "blur-[80px] bg-brand-amber/15"
+                isMizunara ? "blur-[80px] bg-brand-blue/12" : "blur-[80px] bg-brand-amber/15"
               }`}
             />
             <Image
@@ -58,19 +58,8 @@ export default function ProductFeature({ product, reversed = false }: ProductFea
               alt={product.name}
               fill
               sizes="(max-width: 768px) 90vw, 45vw"
-              className={
-                isMizunara
-                  ? "relative z-10 object-contain [filter:brightness(1.03)_contrast(0.94)_saturate(0.98)_drop-shadow(0_28px_56px_rgba(0,0,0,0.5))]"
-                  : "relative z-10 object-contain drop-shadow-2xl"
-              }
+              className="relative z-10 object-contain object-bottom drop-shadow-2xl"
             />
-            {/* Bottom blend — helps bottle base read cleanly on dark ground (silo) */}
-            {isMizunara && (
-              <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[28%] bg-gradient-to-t from-[#07090b] via-[#07090b]/70 to-transparent"
-                aria-hidden
-              />
-            )}
           </div>
         </motion.div>
 

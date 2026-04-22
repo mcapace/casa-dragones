@@ -45,7 +45,7 @@ export default function StickyNav() {
             aria-label="Casa Dragones — home"
           >
             <Image
-              src={siteConfig.brand.logo}
+              src={siteConfig.brand.logoBlu}
               alt=""
               width={180}
               height={30}

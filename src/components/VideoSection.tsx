@@ -7,12 +7,31 @@ import Section from "./Section";
 import { siteConfig } from "@/lib/content";
 import { useScrollAnimationVariants } from "@/hooks/useScrollAnimationVariants";
 
+function vimeoEmbedSrc(vimeoId: string, vimeoHash?: string) {
+  const base = `https://player.vimeo.com/video/${vimeoId}`;
+  const params = new URLSearchParams({
+    autoplay: "1",
+    title: "0",
+    byline: "0",
+    portrait: "0",
+    color: "1ca1d1",
+    badge: "0",
+    autopause: "0",
+    player_id: "0",
+    app_id: "58479",
+  });
+  if (vimeoHash) params.set("h", vimeoHash);
+  return `${base}?${params.toString()}`;
+}
+
 function VideoPlayer({
   vimeoId,
+  vimeoHash,
   title,
   posterSrc,
 }: {
   vimeoId: string;
+  vimeoHash?: string;
   title: string;
   posterSrc: string;
 }) {
@@ -23,10 +42,11 @@ function VideoPlayer({
     <div className="relative aspect-video w-full overflow-hidden bg-brand-charcoal">
       {playing ? (
         <iframe
-          src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&color=1CA1D1`}
+          src={vimeoEmbedSrc(vimeoId, vimeoHash)}
           className="absolute inset-0 h-full w-full"
-          allow="autoplay; fullscreen; picture-in-picture"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
           allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
           title={title}
         />
       ) : (
@@ -109,6 +129,7 @@ export default function VideoSection() {
             <motion.div key={video.id} variants={anim.fadeUp}>
               <VideoPlayer
                 vimeoId={video.vimeoId}
+                vimeoHash={"vimeoHash" in video ? video.vimeoHash : undefined}
                 title={video.title}
                 posterSrc={video.posterSrc}
               />
