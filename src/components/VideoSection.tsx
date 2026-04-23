@@ -24,18 +24,53 @@ function vimeoEmbedSrc(vimeoId: string, vimeoHash?: string) {
   return `${base}?${params.toString()}`;
 }
 
+/** Square (1:1) picture inside Vimeo’s 16:9 player needs ~1.78× uniform zoom to fill a 16:9 frame. */
+const DEFAULT_VIMEO_COVER_SCALE = 16 / 9;
+
+function VimeoCoverFrame({
+  src,
+  title,
+  scale = DEFAULT_VIMEO_COVER_SCALE,
+}: {
+  src: string;
+  title: string;
+  scale?: number;
+}) {
+  const sizePct = `${scale * 100}%`;
+  return (
+    <div className="absolute inset-0 overflow-hidden bg-black">
+      {/* Scale the wrapper, not the iframe — some browsers ignore transform on iframes. */}
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{ width: sizePct, height: sizePct }}
+      >
+        <iframe
+          src={src}
+          className="block h-full w-full border-0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
+          title={title}
+        />
+      </div>
+    </div>
+  );
+}
+
 function VideoPlayer({
   vimeoId,
   vimeoHash,
   title,
   posterSrc,
   embedFill,
+  embedCoverScale,
 }: {
   vimeoId: string;
   vimeoHash?: string;
   title: string;
   posterSrc: string;
   embedFill?: "cover";
+  embedCoverScale?: number;
 }) {
   const [playing, setPlaying] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -44,16 +79,11 @@ function VideoPlayer({
     <div className="relative aspect-video w-full overflow-hidden bg-brand-charcoal">
       {playing ? (
         embedFill === "cover" ? (
-          <div className="absolute inset-0 overflow-hidden bg-black">
-            <iframe
-              src={vimeoEmbedSrc(vimeoId, vimeoHash)}
-              className="absolute left-1/2 top-1/2 h-full w-full origin-center scale-[calc(16/9)] -translate-x-1/2 -translate-y-1/2"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-              allowFullScreen
-              referrerPolicy="strict-origin-when-cross-origin"
-              title={title}
-            />
-          </div>
+          <VimeoCoverFrame
+            src={vimeoEmbedSrc(vimeoId, vimeoHash)}
+            title={title}
+            scale={embedCoverScale ?? DEFAULT_VIMEO_COVER_SCALE}
+          />
         ) : (
           <iframe
             src={vimeoEmbedSrc(vimeoId, vimeoHash)}
@@ -154,6 +184,12 @@ export default function VideoSection() {
                 embedFill={
                   "embedFill" in video && video.embedFill === "cover"
                     ? "cover"
+                    : undefined
+                }
+                embedCoverScale={
+                  "embedCoverScale" in video &&
+                  typeof video.embedCoverScale === "number"
+                    ? video.embedCoverScale
                     : undefined
                 }
               />
