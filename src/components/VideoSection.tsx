@@ -129,7 +129,11 @@ export default function VideoSection() {
             <motion.div key={video.id} variants={anim.fadeUp}>
               <VideoPlayer
                 vimeoId={video.vimeoId}
-                vimeoHash={"vimeoHash" in video ? video.vimeoHash : undefined}
+                vimeoHash={
+                  "vimeoHash" in video && typeof video.vimeoHash === "string"
+                    ? video.vimeoHash
+                    : undefined
+                }
                 title={video.title}
                 posterSrc={video.posterSrc}
               />

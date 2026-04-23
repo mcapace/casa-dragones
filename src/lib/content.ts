@@ -144,9 +144,7 @@ export const siteConfig = {
     {
       id: "reposado-mizunara-video",
       title: "Casa Dragones Reposado Mizunara",
-      vimeoId: "752696089",
-      /** Required for Vimeo privacy / unlisted embeds (matches casadragones.com product page). */
-      vimeoHash: "9c183025bf",
+      vimeoId: "744805235",
       posterSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
     },
     {
