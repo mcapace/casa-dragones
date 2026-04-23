@@ -146,6 +146,8 @@ export const siteConfig = {
       title: "Casa Dragones Reposado Mizunara",
       vimeoId: "744805235",
       posterSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
+      /** Vimeo letterboxes square-ish masters in 16:9; zoom iframe to fill our 16:9 slot. */
+      embedFill: "cover",
     },
     {
       id: "anejo-barrel-blend-video",

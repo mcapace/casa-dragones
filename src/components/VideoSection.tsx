@@ -29,11 +29,13 @@ function VideoPlayer({
   vimeoHash,
   title,
   posterSrc,
+  embedFill,
 }: {
   vimeoId: string;
   vimeoHash?: string;
   title: string;
   posterSrc: string;
+  embedFill?: "cover";
 }) {
   const [playing, setPlaying] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -41,14 +43,27 @@ function VideoPlayer({
   return (
     <div className="relative aspect-video w-full overflow-hidden bg-brand-charcoal">
       {playing ? (
-        <iframe
-          src={vimeoEmbedSrc(vimeoId, vimeoHash)}
-          className="absolute inset-0 h-full w-full"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
-          title={title}
-        />
+        embedFill === "cover" ? (
+          <div className="absolute inset-0 overflow-hidden bg-black">
+            <iframe
+              src={vimeoEmbedSrc(vimeoId, vimeoHash)}
+              className="absolute left-1/2 top-1/2 h-full w-full origin-center scale-[calc(16/9)] -translate-x-1/2 -translate-y-1/2"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              title={title}
+            />
+          </div>
+        ) : (
+          <iframe
+            src={vimeoEmbedSrc(vimeoId, vimeoHash)}
+            className="absolute inset-0 h-full w-full"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            title={title}
+          />
+        )
       ) : (
         <button
           onClick={() => setPlaying(true)}
@@ -136,6 +151,11 @@ export default function VideoSection() {
                 }
                 title={video.title}
                 posterSrc={video.posterSrc}
+                embedFill={
+                  "embedFill" in video && video.embedFill === "cover"
+                    ? "cover"
+                    : undefined
+                }
               />
             </motion.div>
           ))}
