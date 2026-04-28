@@ -74,7 +74,6 @@ export const siteConfig = {
         finish: "Long finish with hints of coffee bean and mellow spice",
       },
       body: "Light, bright golden with a silky texture, and long pronounced legs",
-      /** Client packshot: replace this file when an updated PNG is delivered (same path). */
       imageSrc: "/assets/products/tequila-casa-dragones-reposado-750-US-bottle.png",
       heroImageSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
       accent: "mizunara",
