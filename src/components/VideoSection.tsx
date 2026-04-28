@@ -7,10 +7,26 @@ import Section from "./Section";
 import { siteConfig } from "@/lib/content";
 import { useScrollAnimationVariants } from "@/hooks/useScrollAnimationVariants";
 
-function vimeoEmbedSrc(vimeoId: string, vimeoHash?: string) {
+type VimeoPreset = "default" | "minimal";
+
+function buildVimeoEmbedUrl(
+  vimeoId: string,
+  opts: { autoplay: boolean; vimeoHash?: string; preset: VimeoPreset },
+) {
   const base = `https://player.vimeo.com/video/${vimeoId}`;
-  const params = new URLSearchParams({
-    autoplay: "1",
+  if (opts.preset === "minimal") {
+    const p = new URLSearchParams({
+      badge: "0",
+      autopause: "0",
+      player_id: "0",
+      app_id: "58479",
+    });
+    if (opts.vimeoHash) p.set("h", opts.vimeoHash);
+    if (opts.autoplay) p.set("autoplay", "1");
+    return `${base}?${p.toString()}`;
+  }
+  const p = new URLSearchParams({
+    autoplay: opts.autoplay ? "1" : "0",
     title: "0",
     byline: "0",
     portrait: "0",
@@ -20,87 +36,54 @@ function vimeoEmbedSrc(vimeoId: string, vimeoHash?: string) {
     player_id: "0",
     app_id: "58479",
   });
-  if (vimeoHash) params.set("h", vimeoHash);
-  return `${base}?${params.toString()}`;
-}
-
-/** Square (1:1) picture inside Vimeo’s 16:9 player needs ~1.78× uniform zoom to fill a 16:9 frame. */
-const DEFAULT_VIMEO_COVER_SCALE = 16 / 9;
-
-function VimeoCoverFrame({
-  src,
-  title,
-  scale = DEFAULT_VIMEO_COVER_SCALE,
-}: {
-  src: string;
-  title: string;
-  scale?: number;
-}) {
-  const sizePct = `${scale * 100}%`;
-  return (
-    <div className="absolute inset-0 overflow-hidden bg-black">
-      {/* Scale the wrapper, not the iframe — some browsers ignore transform on iframes. */}
-      <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        style={{ width: sizePct, height: sizePct }}
-      >
-        <iframe
-          src={src}
-          className="block h-full w-full border-0"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
-          title={title}
-        />
-      </div>
-    </div>
-  );
+  if (opts.vimeoHash) p.set("h", opts.vimeoHash);
+  return `${base}?${p.toString()}`;
 }
 
 function VideoPlayer({
   vimeoId,
   vimeoHash,
   title,
+  iframeTitle,
   posterSrc,
-  embedFill,
-  embedCoverScale,
+  vimeoEmbedPreset = "default",
 }: {
   vimeoId: string;
   vimeoHash?: string;
   title: string;
+  iframeTitle?: string;
   posterSrc: string;
-  embedFill?: "cover";
-  embedCoverScale?: number;
+  vimeoEmbedPreset?: VimeoPreset;
 }) {
   const [playing, setPlaying] = useState(false);
   const reduceMotion = useReducedMotion();
+  const iframeLabel = iframeTitle ?? title;
+
+  const iframeSrc = buildVimeoEmbedUrl(vimeoId, {
+    autoplay: playing,
+    vimeoHash,
+    preset: vimeoEmbedPreset,
+  });
 
   return (
     <div className="relative aspect-video w-full overflow-hidden bg-brand-charcoal">
       {playing ? (
-        embedFill === "cover" ? (
-          <VimeoCoverFrame
-            src={vimeoEmbedSrc(vimeoId, vimeoHash)}
-            title={title}
-            scale={embedCoverScale ?? DEFAULT_VIMEO_COVER_SCALE}
-          />
-        ) : (
-          <iframe
-            src={vimeoEmbedSrc(vimeoId, vimeoHash)}
-            className="absolute inset-0 h-full w-full"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-            allowFullScreen
-            referrerPolicy="strict-origin-when-cross-origin"
-            title={title}
-          />
-        )
+        <iframe
+          key={iframeSrc}
+          src={iframeSrc}
+          className="absolute inset-0 h-full w-full border-0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
+          title={iframeLabel}
+        />
       ) : (
         <button
+          type="button"
           onClick={() => setPlaying(true)}
           className="group relative block h-full w-full"
           aria-label={`Play ${title}`}
         >
-          {/* Poster image */}
           <Image
             src={posterSrc}
             alt={title}
@@ -112,10 +95,8 @@ function VideoPlayer({
                 : "object-cover transition-transform duration-700 group-hover:scale-105"
             }
           />
-          {/* Dark overlay */}
           <div className="absolute inset-0 bg-brand-black/40 transition-colors group-hover:bg-brand-black/30" />
 
-          {/* Play button */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div
               className={
@@ -134,7 +115,6 @@ function VideoPlayer({
             </div>
           </div>
 
-          {/* Title */}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-black/80 to-transparent p-6">
             <p className="text-sm font-medium text-brand-cream/80">{title}</p>
           </div>
@@ -180,17 +160,16 @@ export default function VideoSection() {
                     : undefined
                 }
                 title={video.title}
-                posterSrc={video.posterSrc}
-                embedFill={
-                  "embedFill" in video && video.embedFill === "cover"
-                    ? "cover"
+                iframeTitle={
+                  "iframeTitle" in video && typeof video.iframeTitle === "string"
+                    ? video.iframeTitle
                     : undefined
                 }
-                embedCoverScale={
-                  "embedCoverScale" in video &&
-                  typeof video.embedCoverScale === "number"
-                    ? video.embedCoverScale
-                    : undefined
+                posterSrc={video.posterSrc}
+                vimeoEmbedPreset={
+                  "vimeoEmbedPreset" in video && video.vimeoEmbedPreset === "minimal"
+                    ? "minimal"
+                    : "default"
                 }
               />
             </motion.div>

@@ -74,6 +74,7 @@ export const siteConfig = {
         finish: "Long finish with hints of coffee bean and mellow spice",
       },
       body: "Light, bright golden with a silky texture, and long pronounced legs",
+      /** Client packshot: replace this file when an updated PNG is delivered (same path). */
       imageSrc: "/assets/products/tequila-casa-dragones-reposado-750-US-bottle.png",
       heroImageSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
       accent: "mizunara",
@@ -146,8 +147,9 @@ export const siteConfig = {
       title: "Casa Dragones Reposado Mizunara",
       vimeoId: "744805235",
       posterSrc: "/assets/hero/casa-dragones-reposado-mizunara-16x9.jpg",
-      /** Vimeo letterboxes square-ish masters in 16:9; zoom iframe to fill our 16:9 slot. */
-      embedFill: "cover",
+      /** Matches Casa Dragones embed snippet (badge, autopause, player_id, app_id). */
+      vimeoEmbedPreset: "minimal",
+      iframeTitle: "Tequila Casa Dragones - Reposado Mizunara",
     },
     {
       id: "anejo-barrel-blend-video",
